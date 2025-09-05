@@ -47,7 +47,10 @@ local tabFE = Window:NewTab("FE Scripts")
 local sectionFE = tabFE:NewSection("Server Side")
 
 local tabAdmin = Window:NewTab("Admin Commands")
-local sectionAdmin = tabFE:NewSection("Admin Commands")
+local sectionAdmin = tabAdmin:NewSection("Admin Commands(Most Popular)")
+
+local tabGames = Window:NewTab("Games Scripts")
+local sectionGames = tabGames:NewSection("Games GUIs/HUBs/Scripts")
 
 local FE = Window:NewTab("FE V2")
 local FESection = FE:NewSection("FE V2 SCRIPTS")
@@ -68,7 +71,7 @@ local ChatSection = Chat:NewSection("Chat Bypasser")
 -- ADMIN COMMANDS
 -- =========================
 
-sectionAdmin:NewButton("Nameless Admin", "FE Admin GUI açar", function()
+sectionAdmin:NewButton("Nameless Admin", "Nameless Admin", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
 end)
 
@@ -79,6 +82,56 @@ end)
 sectionAdmin:NewButton("AK ADMIN", "AK ADMIN", function()
     loadstring(game:HttpGet("https://angelical.me/ak.lua"))()
 end)
+
+
+-- =========================
+-- GAMES
+-- =========================
+
+sectionGames:NewButton("99 Nights", "99 Nights", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
+end)
+
+sectionGames:NewButton("99 Nights Diamond Autofarm", "99 Nights Diamond Autofarm", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Farm%20Diamond%20v2.lua"))()
+end)
+
+sectionGames:NewButton("Talentless Auto Piano V2", "Talentless Auto Piano V2", function()
+    pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/TALENTLESS/main/TALENTLESS", true))()
+    end)
+end)
+
+sectionGames:NewButton("Grow A Garden", "Grow A Garden", function()
+    loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
+end)
+
+sectionGames:NewButton("Murder Mystery 2", "Murder Mystery 2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/orialdev/VisionHub/refs/heads/main/main.lua"))()
+end)
+
+sectionGames:NewButton("Ink Game Script", "Ink Game Script", function()
+    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0785b4b8f41683be513badd57f6a71c0.lua"))()
+end)
+
+sectionGames:NewButton("Steal A Brainrot", "Steal A Brainrot", function()
+     loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
+end)
+
+
+sectionGames:NewButton("FE Brookhaven SP HUB","Brookhaven RP En iyi HUB", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
+end)
+
+sectionGames:NewButton("Brookhaven Sander X 4.2.2", "Brookhaven HUB", function()
+     loadstring(game:HttpGet('https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua'))()
+end)
+
+sectionGames:NewButton("Brookhaven Sander X 3.30", "Brookhaven HUB", function()
+     loadstring(game:HttpGet(('https://raw.githubusercontent.com/sXPiterXs1111/Sanderxv3.30/main/sanderx3.30')))()
+end)
+
+
 
 -- =========================
 -- FE SCRIPTS
@@ -110,18 +163,6 @@ end)
 
 sectionFE:NewButton("FE c00lkidd GUI", "Fonksiyonel c00lkidd GUI", function()
      loadstring(game:HttpGet("https://pastebin.com/raw/AczzXtnG"))()
-end)
-
-sectionFE:NewButton("FE Brookhaven SP HUB","Brookhaven RP En iyi HUB", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
-end)
-
-sectionFE:NewButton("Brookhaven Sander X 4.2.2", "Brookhaven HUB", function()
-     loadstring(game:HttpGet('https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua'))()
-end)
-
-sectionFE:NewButton("Brookhaven Sander X 3.30", "Brookhaven HUB", function()
-     loadstring(game:HttpGet(('https://raw.githubusercontent.com/sXPiterXs1111/Sanderxv3.30/main/sanderx3.30')))()
 end)
 
 sectionFE:NewButton("Fe Telekinesis V5", "Telekinesi", function()
