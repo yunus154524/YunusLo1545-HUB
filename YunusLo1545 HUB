@@ -46,6 +46,9 @@ end)
 local tabFE = Window:NewTab("FE Scripts")
 local sectionFE = tabFE:NewSection("Server Side")
 
+local tabAdmin = Window:NewTab("Admin Commands")
+local sectionAdmin = tabFE:NewSection("Admin Commands")
+
 local FE = Window:NewTab("FE V2")
 local FESection = FE:NewSection("FE V2 SCRIPTS")
 
@@ -62,6 +65,22 @@ local Chat = Window:NewTab("Chat Bypass")
 local ChatSection = Chat:NewSection("Chat Bypasser")
 
 -- =========================
+-- ADMIN COMMANDS
+-- =========================
+
+sectionAdmin:NewButton("Nameless Admin", "FE Admin GUI açar", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+end)
+
+sectionAdmin:NewButton("Infinite Yield", "Infinite Yield", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+sectionAdmin:NewButton("AK ADMIN", "AK ADMIN", function()
+    loadstring(game:HttpGet("https://angelical.me/ak.lua"))()
+end)
+
+-- =========================
 -- FE SCRIPTS
 -- =========================
 
@@ -75,10 +94,6 @@ end)
 
 sectionFE:NewButton("FE Fling All", "Tüm oyuncuları fırlatır", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
-end)
-
-sectionFE:NewButton("Nameless Admin", "FE Admin GUI açar", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
 end)
 
 sectionFE:NewButton("SkyHub GUI", "Trolling GUI açar", function()
