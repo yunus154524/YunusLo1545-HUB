@@ -222,6 +222,22 @@ FESection:NewButton("FE Btools", "FE Btools bazı oyunlarda çalışır", functi
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
+FESection:NewButton("FE Sharingan Script", "FE Sharingan Script", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/bidQM5Bz"))()
+end)
+
+FESection:NewButton("FE Scp 096", "FE Scp 096", function()
+    loadstring(game:HttpGet("https://pastefy.app/YsJgITXR/raw"))()
+end)
+
+FESection:NewButton("FE Roblox Egor", "FE Roblox Egor", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GithubMagical/Roblox-Egor/refs/heads/main/lua%20v2", true))()
+end)
+
+FESection:NewButton("FE Sandevistan Script", "FE Sandevistan Script", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/idbiRMZG"))()
+end)
+
 FESection:NewButton("FE Bring Unanchored", "FE Bring Unanchored", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXArchivezx/Game/refs/heads/main/ArceusXArchive"))()
 end)
@@ -378,6 +394,10 @@ end)]]--
 
 sectionExtras:NewButton("Executor Checker", "Executor Checker", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/RealBatu20/AI-Scripts-2025/refs/heads/main/ExecutorTestsPanel.lua"))()
+end)
+
+sectionExtras:NewButton("Wally West(HOLD Q)", "Wally West", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/VDxFA1Ze"))()
 end)
 
 sectionExtras:NewButton("Simple Exploit Maker", "Simple Exploit Maker", function()
