@@ -818,4 +818,4 @@ end)
 updateESP()
 refreshPlayerNames()
 
-print("Solara Ultimate Hacker GUI başarıyla yüklendi!")
+print("YunusLo1545 GUI loaded succesfully!")
