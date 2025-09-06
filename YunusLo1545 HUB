@@ -100,10 +100,6 @@ sectionGames:NewButton("99 Nights Diamond Autofarm", "99 Nights Diamond Autofarm
     loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Farm%20Diamond%20v2.lua"))()
 end)
 
-sectionGames:NewButton("Blox Fruit", Blox Fruit", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))()
-end)
-
 sectionGames:NewButton("Talentless Auto Piano V2", "Talentless Auto Piano V2", function()
     pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/TALENTLESS/main/TALENTLESS", true))()
