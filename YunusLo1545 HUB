@@ -7,16 +7,6 @@ Anti AFK, Super Punch, Speed Aura, Infinite Jump, Sit Toggle, Fly GUI ve daha fa
 Şık Siyah-Kırmızı Tema, LeftAlt ile GUI toggle, T tuşu ile ışınlanma
 ]=]--
 
-local message = Instance.new("Message", workspace)
-message.Text = "YunusLo1545 GUI/HUB Loaded"
-wait(1)
-message:Destroy()
-
-local hint = Instance.new("Hint", workspace)
-hint.Text = "YunusLo1545 GUI/HUB Loaded"
-wait(6)
-hint:Destroy()
-
 game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "YunusLo1545 GUI/HUB", -- Required
 	Text = "Loaded", -- Required
