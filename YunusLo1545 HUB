@@ -98,6 +98,10 @@ end)
 -- GAMES
 -- =========================
 
+sectionGames:NewButton("BEST BROOKHAVEN HUB", "BEST BROOKHAVEN HUB", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/toparemos/Source/refs/heads/main/Games/Support/loader.lua"))()
+end)
+
 sectionGames:NewButton("99 Nights", "99 Nights", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
 end)
