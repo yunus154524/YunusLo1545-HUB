@@ -123,8 +123,12 @@ sectionGames:NewButton("Steal A Brainrot", "Steal A Brainrot", function()
 end)
 
 
-sectionGames:NewButton("FE Brookhaven SP HUB","Brookhaven RP En iyi HUB", function()
+sectionGames:NewButton("FE Brookhaven SP HUB","BEST", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
+end)
+
+sectionGames:NewButton("Brookhaven Sander XY NEW", "BEST", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/kigredns/testUIDK/refs/heads/main/panel.lua"))()
 end)
 
 sectionGames:NewButton("Brookhaven Sander X 4.2.2", "Brookhaven HUB", function()
