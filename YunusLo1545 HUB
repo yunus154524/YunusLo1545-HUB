@@ -132,13 +132,27 @@ sectionGames:NewButton("Brookhaven Sander X 3.30", "Brookhaven HUB", function()
 end)
 
 sectionGames:NewToggle("FE Brookhaven Aura(Reactor Uptade)", "FE Brookhaven Aura(Reactor Uptade)", function()
-    local player = game.Players.LocalPlayer
-    local char = player.Character or player.CharacterAdded:Wait()
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
 
-    local target = workspace["001_Lots"]:GetChildren()[4].HousePickedByPlayer.HouseModel.Components.Touch
+for _, lot in ipairs(workspace["001_Lots"]:GetChildren()) do
+    local house = lot:FindFirstChild("HousePickedByPlayer")
+    if house then
+        local model = house:FindFirstChild("HouseModel")
+        if model then
+            local comps = model:FindFirstChild("Components")
+            if comps then
+                for _, part in ipairs(comps:GetChildren()) do
+                    if part:FindFirstChild("TouchInterest") then
+                        firetouchinterest(char.HumanoidRootPart, part, 0)
+                        firetouchinterest(char.HumanoidRootPart, part, 1)
+                    end
+                end
+            end
+        end
+    end
+end
 
-    firetouchinterest(char.HumanoidRootPart, target, 0)
-    firetouchinterest(char.HumanoidRootPart, target, 1)
 end)
 
 
