@@ -131,6 +131,18 @@ sectionGames:NewButton("Brookhaven Sander X 3.30", "Brookhaven HUB", function()
      loadstring(game:HttpGet(('https://raw.githubusercontent.com/sXPiterXs1111/Sanderxv3.30/main/sanderx3.30')))()
 end)
 
+sectionGames:NewToggle("FE Brookhaven Aura(Reactor Uptade)", "FE Brookhaven Aura(Reactor Uptade)", function()
+    local player = game.Players.LocalPlayer
+    local char = player.Character or player.CharacterAdded:Wait()
+
+    local target = workspace["001_Lots"]:GetChildren()[4].HousePickedByPlayer.HouseModel.Components.Touch
+
+    firetouchinterest(char.HumanoidRootPart, target, 0)
+    firetouchinterest(char.HumanoidRootPart, target, 1)
+end)
+
+
+
 
 
 -- =========================
