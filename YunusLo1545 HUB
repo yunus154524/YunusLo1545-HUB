@@ -7,6 +7,12 @@ Anti AFK, Super Punch, Speed Aura, Infinite Jump, Sit Toggle, Fly GUI ve daha fa
 Şık Siyah-Kırmızı Tema, LeftAlt ile GUI toggle, T tuşu ile ışınlanma
 ]=]--
 
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "YunusLo1545 GUI/HUB", -- Required
+	Text = "Loaded", -- Required
+	Icon = "" -- Optional
+})
+
 -- Services
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
