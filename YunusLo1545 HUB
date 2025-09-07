@@ -106,6 +106,10 @@ sectionGames:NewButton("99 Nights", "99 Nights", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
 end)
 
+sectionGames:NewButton("99 Nights(SolunaIsLove = Pass)", "99 Nights 2", function()
+     loadstring(game:HttpGet("https://soluna-script.vercel.app/99-Nights-in-the-Forest.lua",true))()
+end)
+
 sectionGames:NewButton("99 Nights Diamond Autofarm", "99 Nights Diamond Autofarm", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/Farm%20Diamond%20v2.lua"))()
 end)
