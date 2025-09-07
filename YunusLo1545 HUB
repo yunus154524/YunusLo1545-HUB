@@ -185,6 +185,64 @@ end)
 -- FE SCRIPTS
 -- =========================
 
+sectionFE:NewButton("Anti Kick", "Anti Kick", function()
+    for a, b in pairs(getgc()) do
+    if typeof(b) == 'function' then
+        if debug.getinfo(b).name == 'kick' then
+            hookfunction(debug.getinfo(b).func, function()
+            end)
+        end
+    end
+end
+
+local player = game:GetService("Players").LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ScriptNotification"
+screenGui.Parent = playerGui
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 100)
+frame.Position = UDim2.new(0.5, -150, 0.5, -50)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
+
+local title = Instance.new("TextLabel")
+title.Text = "Bypass successfully"
+title.Size = UDim2.new(1, 0, 0.6, 0)
+title.BackgroundTransparency = 1
+title.TextScaled = true
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.SourceSansBold
+title.Parent = frame
+
+local dismissButton = Instance.new("TextButton")
+dismissButton.Text = "Dismiss"
+dismissButton.Size = UDim2.new(0.6, 0, 0.3, 0)
+dismissButton.Position = UDim2.new(0.2, 0, 0.7, 0)
+dismissButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+dismissButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+dismissButton.Font = Enum.Font.SourceSans
+dismissButton.TextScaled = true
+dismissButton.Parent = frame
+
+dismissButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
+
+while true do
+    local targetObject = playerGui:FindFirstChild("movementDisabler")
+    
+    if targetObject then
+        targetObject:Destroy()
+    end
+    
+    wait(1)
+end
+end)
+
 sectionFE:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
 end)
