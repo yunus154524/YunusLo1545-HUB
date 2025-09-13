@@ -467,9 +467,9 @@ synsaveinstance(Options)
 end)
 
 FESection:NewButton("FE Part Controller", "Anchored Parts", function()
-        pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/PartController/refs/heads/main/PartController.lua", true))()
-    end)
+pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/PartController/refs/heads/main/PartController.lua", true))()
+end)
 end)
 
 --SPY REMOTES ETC..
