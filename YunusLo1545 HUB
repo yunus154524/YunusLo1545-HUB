@@ -102,6 +102,19 @@ sectionGames:NewButton("BEST BROOKHAVEN HUB", "BEST BROOKHAVEN HUB", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/toparemos/Source/refs/heads/main/Games/Support/loader.lua"))()
 end)
 
+sectionGames:NewButton("Blox Fruits", "Blox Fruits", function()
+	local Settings = {
+  JoinTeam = "Pirates"; -- Pirates/Marines
+  Translator = true; -- true/false
+}
+getgenv().BETA_VERSION = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
+end)
+
+sectionGames:NewButton("99 Nights(OP)", "99 Nights(OP)", function()
+     loadstring(game:HttpGet("https://nazuro.xyz/99nights"))()
+end)
+
 sectionGames:NewButton("99 Nights", "99 Nights", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
 end)
