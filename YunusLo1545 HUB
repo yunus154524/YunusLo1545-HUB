@@ -279,7 +279,7 @@ local function triggerNearbyPrompts()
         if object:IsA("ProximityPrompt") then
             -- Zaten tetiklenmişse atla
             if triggeredPrompts[object] then
-                continue
+                continue()
             end
 
             -- Prompt'un pozisyonunu al
