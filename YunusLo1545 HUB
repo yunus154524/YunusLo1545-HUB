@@ -259,6 +259,61 @@ while true do
 end
 end)
 
+sectionFE:NewToggle("Spam Proximity(15 Studs)", "Spam Proximity(15 Studs)", function()
+    local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local maxDistance = 10 -- Maksimum mesafe (studs cinsinden, isteğe göre değiştir)
+local triggeredPrompts = {} -- Tetiklenen prompt'ları takip etmek için tablo
+
+-- Yakındaki ProximityPrompt'ları tetikleme fonksiyonu
+local function triggerNearbyPrompts()
+    -- Oyuncunun karakteri var mı kontrol et
+    if not Player.Character or not Player.Character:FindFirstChild("HumanoidRootPart") then
+        return
+    end
+
+    local playerPosition = Player.Character.HumanoidRootPart.Position
+
+    -- Çalışma alanındaki tüm ProximityPrompt'ları tara
+    for _, object in pairs(game.Workspace:GetDescendants()) do
+        if object:IsA("ProximityPrompt") then
+            -- Zaten tetiklenmişse atla
+            if triggeredPrompts[object] then
+                continue
+            end
+
+            -- Prompt'un pozisyonunu al
+            local promptPosition = object.Parent.Position
+            -- Oyuncuya olan mesafeyi hesapla
+            local distance = (promptPosition - playerPosition).Magnitude
+
+            -- Eğer mesafe maxDistance'dan küçükse
+            if distance <= maxDistance then
+                -- Tetikleme hızını 0 yap
+                object.HoldDuration = 0
+                -- Prompt'u anında tetikle
+                pcall(function()
+                    fireproximityprompt(object)
+                    -- Tetiklendi olarak işaretle
+                    triggeredPrompts[object] = true
+                    -- 5 saniye sonra tekrar tetiklenebilir yap
+                    spawn(function()
+                        wait(5) -- Tekrar tetiklenmeden önce bekleme süresi
+                        triggeredPrompts[object] = nil
+                    end)
+                end)
+            end
+        end
+    end
+end
+
+-- Daha az sıklıkla kontrol için döngü
+while true do
+    triggerNearbyPrompts()
+    wait(0.2) -- 0.2 saniye gecikme (kasmayı azaltır)
+end
+end)
+
 sectionFE:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
 end)
