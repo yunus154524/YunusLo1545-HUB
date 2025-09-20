@@ -61,6 +61,9 @@ local sectionGames = tabGames:NewSection("Games GUIs/HUBs/Scripts")
 local FE = Window:NewTab("FE V2")
 local FESection = FE:NewSection("FE V2 SCRIPTS")
 
+local Hubs = Window:NewTab("HUBS")
+local sectionHUBS = Hubs:NewSection("HUBS")
+
 local SPY = Window:NewTab("Remote SPYS")
 local spySection = SPY:NewSection("Remote Finders/Scanners")
 
@@ -987,6 +990,18 @@ UserInputService.InputBegan:Connect(function(input, gp)
             rootPart.CFrame = CFrame.new(pos)
         end
     end
+end)
+
+-- =========================
+-- HUBS
+-- =========================
+
+sectionHUBS:NewButton("Xenith HUB", "Xenith HUB", function()
+     loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d7be76c234d46ce6770101fded39760c.lua"))()
+end)
+
+sectionHUBS:NewButton("FE Trolling HUB", "FE Trolling HUB", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
 end)
 
 -- Başlangıçta ESP ve oyuncu listesi güncelle
