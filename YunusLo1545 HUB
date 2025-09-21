@@ -8,9 +8,9 @@ Anti AFK, Super Punch, Speed Aura, Infinite Jump, Sit Toggle, Fly GUI ve daha fa
 ]=]--
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "YunusLo1545 GUI/HUB", -- Required
-	Text = "Loaded", -- Required
-	Icon = "" -- Optional
+	Title = "YunusLo1545 GUI/HUB",
+	Text = "Loaded", 
+	Icon = ""
 })
 
 -- Services
@@ -52,6 +52,9 @@ end)
 local tabFE = Window:NewTab("FE Scripts")
 local sectionFE = tabFE:NewSection("Server Side")
 
+local tabBypass = Window:NewTab("Bypass")
+local sectionBypass = tabBypass:NewSection("Bypass")
+
 local tabAdmin = Window:NewTab("Admin Commands")
 local sectionAdmin = tabAdmin:NewSection("Admin Commands(Most Popular)")
 
@@ -75,6 +78,18 @@ local sectionExtras = tabClient:NewSection("Extras")
 
 local Chat = Window:NewTab("Chat Bypass")
 local ChatSection = Chat:NewSection("Chat Bypasser")
+
+-- =========================
+-- BYPASS
+-- =========================
+
+sectionBypass:NewButton("Adonis Bypass", "Adonis Bypass", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
+end)
+
+sectionBypass:NewButton("Anti-Kick Bypass", "Anti-Kick Bypass", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/main/Anti-Kick.lua"))()
+end)
 
 -- =========================
 -- ADMIN COMMANDS
