@@ -84,6 +84,10 @@ sectionAdmin:NewButton("Nameless Admin", "Nameless Admin", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
 end)
 
+sectionAdmin:NewButton("Nameless Admin V2", "Nameless Admin V2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
+end)
+
 sectionAdmin:NewButton("YunusLo1545 Yield", "YunusLo1545 Yield", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/yunus154524/Infinite-Yield/refs/heads/main/YunusLo1545%20Yield'))()
 end)
@@ -451,8 +455,12 @@ end)
 
 --FE V2
 
-FESection:NewButton("FE Btools", "FE Btools bazı oyunlarda çalışır", function()
+FESection:NewButton("FE Btools", "Probably the best gravity gun script thats FE", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
+end)
+
+FESection:NewButton("FE Gravity Gun", "FE Btools bazı oyunlarda çalışır", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/gravity%20gun"))()
 end)
 
 FESection:NewButton("FE Sharingan Script", "FE Sharingan Script", function()
