@@ -64,8 +64,11 @@ local sectionGames = tabGames:NewSection("Games GUIs/HUBs/Scripts")
 local FE = Window:NewTab("FE V2")
 local FESection = FE:NewSection("FE V2 SCRIPTS")
 
-local Hubs = Window:NewTab("HUBS")
-local sectionHUBS = Hubs:NewSection("HUBS")
+local SPY = Window:NewTab("Remote SPYS")
+local spySection = SPY:NewSection("Remote Finders/Scanners")
+
+local Animations = Window:NewTab("Animations")
+local sectionAnimations = Animations:NewSection("Animations")
 
 local SPY = Window:NewTab("Remote SPYS")
 local spySection = SPY:NewSection("Remote Finders/Scanners")
@@ -97,6 +100,10 @@ end)
 
 sectionAdmin:NewButton("Nameless Admin", "Nameless Admin", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+end)
+
+sectionAdmin:NewButton("Reviz Admin", "Reviz Admin", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Pa1ntex/reviz-admin-v2-script-FE/refs/heads/main/Reviz%20admin%20v2%20FE'))()
 end)
 
 sectionAdmin:NewButton("Nameless Admin V2", "Nameless Admin V2", function()
@@ -333,10 +340,6 @@ while true do
 end
 end)
 
-sectionFE:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
-end)
-
 sectionFE:NewButton("FE Kill All", "Tüm oyuncuları öldürür", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/7H6vRJSJ"))()
 end)
@@ -357,10 +360,6 @@ sectionFE:NewButton("FE Sound", "Herkeste Ses Çalsın", function()
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-play-sound-40621"))()
 end)
 
-sectionFE:NewButton("FE c00lkidd GUI", "Fonksiyonel c00lkidd GUI", function()
-     loadstring(game:HttpGet("https://pastebin.com/raw/AczzXtnG"))()
-end)
-
 sectionFE:NewButton("Fe Telekinesis V5", "Telekinesi", function()
     loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty11.lua"))()
 end)
@@ -379,10 +378,6 @@ end)
 
 sectionFE:NewButton("FE Invisible", "GHOST", function()
      loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
-end)
-
-sectionFE:NewButton("FE Aqua Matrix", "FE Scripts", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
 end)
 
 sectionFE:NewButton("FE Fling NPCs", "NPCleri Uçur", function()
@@ -1077,13 +1072,48 @@ end)
 -- =========================
 -- HUBS
 -- =========================
+sectionHUBS:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
+end)
 
 sectionHUBS:NewButton("Xenith HUB", "Xenith HUB", function()
      loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d7be76c234d46ce6770101fded39760c.lua"))()
 end)
 
 sectionHUBS:NewButton("FE Trolling HUB", "FE Trolling HUB", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
+end)
+
+sectionHUBS:NewButton("GHUB 15", "GHUB 15", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/gclich/GHUBV15_X_ZENXOS-MAINLOADER/refs/heads/main/GHUB-X-ZENXOS-V15.txt"))()
+end)
+
+sectionHUBS:NewButton("Billzzard Hub V2", "Billzzard Hub V2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/uaahjajajqoqiqkqhwhwhw/Blizzard-Hub-Official/main/Blizzard%20Hub%20V2.lua", true))()
+end)
+
+sectionHUBS:NewButton("Slicer V6", "Slicer V6", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ahma174/Slicer/refs/heads/main/Slicer%20Fe%20V6"))()
+end)
+
+sectionHUBS:NewButton("System Broken", "System Broken", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+end)
+
+sectionHUBS:NewButton("FE c00lkidd GUI", "Fonksiyonel c00lkidd GUI", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/AczzXtnG"))()
+end)
+
+-- =========================
+-- ANIMATIONS
+-- =========================
+
+sectionAnimations:NewButton("FE Aqua Matrix", "FE Scripts", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
+end)
+
+sectionAnimations:NewButton("Roblox All Animations", "Roblox All Animations", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/K5RC9Z3V"))()
 end)
 
 -- Başlangıçta ESP ve oyuncu listesi güncelle
