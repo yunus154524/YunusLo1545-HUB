@@ -61,6 +61,9 @@ local sectionAdmin = tabAdmin:NewSection("Admin Commands(Most Popular)")
 local tabGames = Window:NewTab("Games Scripts")
 local sectionGames = tabGames:NewSection("Games GUIs/HUBs/Scripts")
 
+local HUBS = Window:NewTab("HUBS")
+local sectionHUBS = HUBS:NewSection("HUBS/GUIS")
+
 local FE = Window:NewTab("FE V2")
 local FESection = FE:NewSection("FE V2 SCRIPTS")
 
@@ -69,9 +72,6 @@ local spySection = SPY:NewSection("Remote Finders/Scanners")
 
 local Animations = Window:NewTab("Animations")
 local sectionAnimations = Animations:NewSection("Animations")
-
-local SPY = Window:NewTab("Remote SPYS")
-local spySection = SPY:NewSection("Remote Finders/Scanners")
 
 
 local tabClient = Window:NewTab("Client")
@@ -1070,8 +1070,21 @@ UserInputService.InputBegan:Connect(function(input, gp)
 end)
 
 -- =========================
+-- ANIMATIONS
+-- =========================
+
+sectionAnimations:NewButton("FE Aqua Matrix", "FE Scripts", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
+end)
+
+sectionAnimations:NewButton("Roblox All Animations", "Roblox All Animations", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/K5RC9Z3V"))()
+end)
+
+-- =========================
 -- HUBS
 -- =========================
+
 sectionHUBS:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
 end)
@@ -1102,18 +1115,6 @@ end)
 
 sectionHUBS:NewButton("FE c00lkidd GUI", "Fonksiyonel c00lkidd GUI", function()
      loadstring(game:HttpGet("https://pastebin.com/raw/AczzXtnG"))()
-end)
-
--- =========================
--- ANIMATIONS
--- =========================
-
-sectionAnimations:NewButton("FE Aqua Matrix", "FE Scripts", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
-end)
-
-sectionAnimations:NewButton("Roblox All Animations", "Roblox All Animations", function()
-     loadstring(game:HttpGet("https://pastebin.com/raw/K5RC9Z3V"))()
 end)
 
 -- Başlangıçta ESP ve oyuncu listesi güncelle
