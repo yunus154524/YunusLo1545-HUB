@@ -128,7 +128,7 @@ end)
 -- =========================
 
 sectionGames:NewButton("BEST BROOKHAVEN HUB", "BEST BROOKHAVEN HUB", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/toparemos/Source/refs/heads/main/Games/Support/loader.lua"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/toparemos/Source/refs/heads/main/Support/loader.luau"))()
 end)
 
 sectionGames:NewButton("Blox Fruits", "Blox Fruits", function()
