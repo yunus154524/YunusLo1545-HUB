@@ -380,6 +380,10 @@ sectionFE:NewButton("FE Invisible", "GHOST", function()
      loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
 end)
 
+sectionFE:NewButton("FE NPC Control", "NPCleri Kontrol Et", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/dacXGb2W "))()
+end)
+
 sectionFE:NewButton("FE Fling NPCs", "NPCleri Uçur", function()
      loadstring(game:HttpGet("https://pastebin.com/raw/svyR6YQg"))()
 end)
@@ -457,10 +461,6 @@ sectionFE:NewToggle("Anti Kick / Ban", "Kick veya banlanmayı engellemeye çalı
             LocalPlayer.OnKick = nil
         end
     end
-end)
-
-sectionFE:NewToggle("FE NPC Control", "NPCleri Kontrol Et", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty13.lua"))()
 end)
 
 --FE V2
