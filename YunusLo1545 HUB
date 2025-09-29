@@ -469,6 +469,14 @@ FESection:NewButton("FE Choke", "FE Choke", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
+FESection:NewButton("FE Grab Knife", "FE Grab Knife", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Grab%20V4.txt", true))()
+end)
+
+FESection:NewButton("FE Touch Fling", "FE Touch Fling", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/LgZwZ7ZB",true))()
+end)
+
 FESection:NewButton("FE Part Invisiblty", "FE Part Invisiblty", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/hiuDUqFS"))()
 end)
