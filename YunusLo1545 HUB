@@ -465,11 +465,11 @@ end)
 
 --FE V2
 
-FESection:NewButton("FE Choke", "FE Choke", function()
+FESection:NewButton("FE Btools", "FE Btools", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
-FESection:NewButton("FE Grab Knife (Works on Backdoored Games)", "FE Grab Knife (Works on Backdoored Games)", function()
+FESection:NewButton("FE Grab Knife(Works on Backdoored Games)", "FE Grab Knife(Works on Backdoored Games)", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Grab%20V4.txt", true))()
 end)
 
@@ -481,11 +481,11 @@ FESection:NewButton("FE Part Invisiblty", "FE Part Invisiblty", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/hiuDUqFS"))()
 end)
 
-FESection:NewButton("FE Gravity Gun", "FE Btools bazı oyunlarda çalışır", function()
+FESection:NewButton("FE Choke", "FE Choke", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/shakk-code/fe-choke-script/refs/heads/main/script.lua', true))()
 end)
 
-FESection:NewButton("FE Gravity Gun", "FE Btools bazı oyunlarda çalışır", function()
+FESection:NewButton("FE Gravity Gun", "FE Gravity Gun", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/gravity%20gun"))()
 end)
 
