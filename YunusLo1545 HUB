@@ -41,9 +41,104 @@ LocalPlayer.CharacterAdded:Connect(function(char)
 end)
 
 -- GUI Toggle LeftAlt
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+screenGui.Name = "ScriptExecutorGui"
+
+-- Create Frame for Button with Gradient (smaller size)
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 150, 0, 40) -- Reduced size
+frame.Position = UDim2.new(0.5, -75, 0, 10) -- Top-center
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
+
+-- Add UIGradient for stylish effect
+local gradient = Instance.new("UIGradient")
+gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(100, 100, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(50, 50, 150))
+}
+gradient.Rotation = 45
+gradient.Parent = frame
+
+-- Add UICorner for rounded edges
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10) -- Slightly smaller corner radius
+corner.Parent = frame
+
+-- Create TextButton
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, -4, 1, -4)
+button.Position = UDim2.new(0, 2, 0, 2)
+button.BackgroundTransparency = 1
+button.Text = "Toggle GUI"
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.TextSize = 16 -- Smaller text size
+button.Font = Enum.Font.GothamBold
+button.Parent = frame
+
+-- Add Hover Effect
+button.MouseEnter:Connect(function()
+    frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    button.TextSize = 18 -- Smaller hover text size
+end)
+
+button.MouseLeave:Connect(function()
+    frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    button.TextSize = 16
+end)
+
+-- Assume Library is defined elsewhere for the UI toggle
+local UserInputService = game:GetService("UserInputService")
+
+-- Button Click Event
+button.MouseButton1Click:Connect(function()
+    Library:ToggleUI()
+end)
+
+-- Keybind for LeftAlt
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.LeftAlt then
         Library:ToggleUI()
+    end
+end)
+
+-- Dragging Functionality
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+button.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+button.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
     end
 end)
 
