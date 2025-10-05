@@ -472,6 +472,10 @@ FESection:NewButton("FE Btools", "FE Btools", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
+FESection:NewButton("FE Cat Script", "FE Cat Script", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Y1MkBRn3"))()
+end)
+
 FESection:NewButton("FE Grab Knife(Works on Backdoored Games)", "FE Grab Knife(Works on Backdoored Games)", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Grab%20V4.txt", true))()
 end)
@@ -1113,7 +1117,7 @@ sectionHUBS:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
 end)
 
 sectionHUBS:NewButton("FE Fling GUI", "FE Fling GUI", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/Mkt6djAP",true))()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Mkt6djAP"))()
 end)
 
 sectionHUBS:NewButton("Xenith HUB", "Xenith HUB", function()
