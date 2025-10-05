@@ -1092,6 +1092,14 @@ sectionAnimations:NewButton("FE Aqua Matrix", "FE Scripts", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
 end)
 
+sectionAnimations:NewButton("FE Animations", "FE Animations", function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/1nJD7PkH",true))()
+end)
+
+sectionAnimations:NewButton("FE Animations V2", "FE Animations V2", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/public-scripts/main/Universal_Animations_Emotes.lua"))()
+end)
+
 sectionAnimations:NewButton("Roblox All Animations", "Roblox All Animations", function()
      loadstring(game:HttpGet("https://pastebin.com/raw/K5RC9Z3V"))()
 end)
