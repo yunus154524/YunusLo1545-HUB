@@ -182,7 +182,6 @@ sectionGames:NewButton("Steal A Brainrot", "Steal A Brainrot", function()
      loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
 end)
 
-
 sectionGames:NewButton("FE Brookhaven SP HUB","BEST", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
 end)
