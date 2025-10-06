@@ -10,7 +10,7 @@ Ek Özellikler: Daha fazla teleport butonu, ekstra FE, yeni game hub'lar, geliş
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "YunusLo1545 GUI/HUB",
-	Text = "Loaded with Rayfield UI", 
+	Text = "Loading...(Wait 3 Seconds)", 
 	Icon = ""
 })
 
@@ -175,113 +175,113 @@ tabTeleport:CreateSlider({
 tabTrolling:CreateButton({
 	Name = "Fake Lag",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/fake-lag-script"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Biem6ondo/FAKELAG/refs/heads/main/Fakelag"))()
 	end
 })
 
 tabTrolling:CreateButton({
 	Name = "Chat Flooder",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/chat-flooder"))()
-	end
-})
-
-tabTrolling:CreateButton({
-	Name = "Invisible Troll",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/invisible-troll"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/SCRIPTHUBV3/main/SCRIPTHUBV3", true))()
 	end
 })
 
 tabTrolling:CreateButton({
 	Name = "Fake Ban Message",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/fake-ban"))()
-	end
-})
-
-tabTrolling:CreateButton({
-	Name = "Sound Spam",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/sound-spam"))()
-	end
-})
-
-tabTrolling:CreateButton({
-	Name = "Particle Flood",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/particle-flood"))()
+		local fakeban = "You have been permanently banned." game.Players.LocalPlayer:Kick(fakeban)
 	end
 })
 
 -- Ek Exploits
 tabExploits:CreateButton({
-	Name = "Infinite Money Exploit (Some Games)",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/inf-money-exploit"))()
-	end
-})
-
-tabExploits:CreateButton({
 	Name = "God Mode Universal",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/god-mode-universal"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Rawbr10/Roblox-Scripts/refs/heads/main/God%20Mode%20Script%20Universal"))()
 	end
 })
 
 tabExploits:CreateButton({
 	Name = "Auto Clicker Exploit",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/auto-clicker"))()
-	end
-})
-
-tabExploits:CreateButton({
-	Name = "Wall Clip Exploit",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/wall-clip"))()
-	end
-})
-
-tabExploits:CreateButton({
-	Name = "Speed Hack V2",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/speed-hack-v2"))()
-	end
-})
-
-tabExploits:CreateButton({
-	Name = "Fly Exploit V4",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/fly-exploit-v4"))()
-	end
-})
-
-tabExploits:CreateButton({
-	Name = "No Clip V3",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/no-clip-v3"))()
-	end
-})
-
-tabExploits:CreateButton({
-	Name = "Item Dupe",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/item-dupe"))()
+		getgenv().key = "Hostile"
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/The-telligence/main/MC%20KSystem%202"))()
 	end
 })
 
 tabExploits:CreateButton({
 	Name = "Teleport Bypass",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/teleport-bypass"))()
+		local pos = Vector3.new(0,0,0) -- your pos here
+local delay = 10 -- tp tween speed like how many seconds takes to tp
+
+-- do not edit below cuz breaks script
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+local lp = game.Players.LocalPlayer
+
+if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+    local cf = CFrame.new(pos)
+    local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+    a:Play()
+end
 	end
 })
 
 tabExploits:CreateButton({
 	Name = "Anti Ban Script",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/anti-ban"))()
+		local X;
+X = hookmetamethod(game, "__namecall", function(self, ...)
+   if getnamecallmethod() == "Ban" then
+       local eval1 = {false}
+       local eval2 = {false}
+       local args = {...}
+       if debug.validlevel(3) and self.Parent == nil then
+           local stack = debug.getstack(3)
+           local counter = 0
+           local expected;
+           for i,v in pairs(stack) do
+               if v == game.Players.LocalPlayer.Name or v == "Ban" or v == "Packet" or v == "Network" then
+                   counter = counter + 1
+               elseif type(v) == "number" then
+                   if type(expected) == "number" then
+                       expected = expected + v
+                   else
+                       expected = v
+                   end
+               end
+           end
+           if counter == expected then
+               eval1 = {true, counter+5}
+           end
+       end
+       if eval1[1] then
+           if #args == eval1[2] then
+               local counter = 0
+               local outgoingkey;
+               for i,v in pairs(args) do
+                   if v == game.Players.LocalPlayer.Name or v == "Ban" or v == "Packet" or v == "Network" then
+                       counter = counter + 1
+                   elseif tostring(i) == "userdata: 0x000000001bdfb8ea" then --current outgoing key address, could change if roblox updates
+                       outgoingkey = v
+                   end
+                   if counter == eval1[2] then
+                       eval2 = {true, outgoingkey}
+                   end
+               end
+           end
+           if eval2[1] then
+               game:GetService("NetworkClient"):SetOutgoingKBPSLimit(0, outgoingkey) --stops ban packets (requires outgoing key to set it to 0)
+               game.Players.LocalPlayer:Kick("Game attempted to ban you but was blocked") --kicked because it'll detect the namecall being blocked
+               return wait(9e9)
+           end
+       end
+   end
+   return X(self, ...)
+end)
 	end
 })
 
@@ -289,63 +289,14 @@ tabExploits:CreateButton({
 tabMoreGames:CreateButton({
 	Name = "Arsenal Silent Aim",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/arsenal-silent-aim"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Malrand/Malrand/main/Arsenal"))()
 	end
 })
 
 tabMoreGames:CreateButton({
 	Name = "Doors Speedrun Script",
 	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/doors-speedrun"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Pet Sim X Gem Farm",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/pet-sim-gem-farm"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Tower of Hell Infinite Jump",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/toh-inf-jump"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Phantom Forces Wallhack",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/pf-wallhack"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Bee Swarm Auto Collect",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/bee-swarm-auto"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Adopt Me Dupe Pets",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/adopt-me-dupe"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Jailbreak Infinite Nitro",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/jb-inf-nitro"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Da Hood God Block",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/da-hood-god-block"))()
+		loadstring(game:HttpGet("https://pastebin.com/raw/8cKJvTwg"))()
 	end
 })
 
@@ -592,14 +543,14 @@ tabGames:CreateToggle({
 tabMoreGames:CreateButton({
 	Name = "Arsenal Aimbot/ESP",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/HubiKubi123123/Arsenal/main/Main.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
 	end
 })
 
 tabMoreGames:CreateButton({
-	Name = "Doors Fullbright + ESP",
+	Name = "Doors",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiddops/Doors/main/Source.lua"))()
+		loadstring(game:HttpGet("https://pastebin.com/raw/8cKJvTwg"))()
 	end
 })
 
@@ -613,84 +564,42 @@ tabMoreGames:CreateButton({
 tabMoreGames:CreateButton({
 	Name = "Tower of Hell GodMode",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/ToHScripts/GodMode/main/script.lua"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Phantom Forces Aimbot",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/PhantomForcesHacks/Aimbot/main/source.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/ignore-touchinterests/main/main",true))()
 	end
 })
 
 tabMoreGames:CreateButton({
 	Name = "Bee Swarm Simulator Hub",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BeeSwarmHub/X/main/loader.lua"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Adopt Me Auto Pet",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/AdoptMeScripts/AutoPet/main/script.lua"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Jailbreak Auto Rob",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/JailbreakHacks/AutoRob/main/source.lua"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Da Hood Aimbot",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/DaHoodScripts/Aimbot2025/main/script.lua"))()
+		loadstring(game:HttpGet("https://scripts.macrov4.com/macrov4.lua"))()
 	end
 })
 
 tabMoreGames:CreateButton({
 	Name = "Bloxburg Auto Farm",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BloxburgFarm/Auto/main/loader.lua"))()
+		loadstring(game:HttpGet('https://luxhub.cc/script.lua'))()
 	end
 })
 
 tabMoreGames:CreateButton({
 	Name = "Natural Disaster Survival GUI",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/NDSHub/GUI/main/script.lua"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Funky Friday Auto Play",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/FunkyFriday/AutoPlay/main/source.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/garfield%20hub", true))()
 	end
 })
 
 tabMoreGames:CreateButton({
 	Name = "Blade Ball Auto Parry",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/BladeBallScripts/AutoParry/main/script.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Akash1al/Blade-Ball-Updated-Script/refs/heads/main/Blade-Ball-Script"))()
 	end
 })
 
 tabMoreGames:CreateButton({
 	Name = "Strongest Battlegrounds GUI",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/SBGHub/GUI/main/loader.lua"))()
-	end
-})
-
-tabMoreGames:CreateButton({
-	Name = "Anime Defenders Hub",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/AnimeDefendersHub/X/main/script.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/sandwichk/RobloxScripts/main/Scripts/BadWare/Hub/Load.lua", true))()
 	end
 })
 
@@ -1166,21 +1075,7 @@ end)
 tabExtraFE:CreateButton({
 	Name = "SwampM0nster FE Hub",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/SwampMonsterFE/Hub/main/source.lua"))()
-	end
-})
-
-tabExtraFE:CreateButton({
-	Name = "C00lKid v2 FE",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/C00lKidV2/FE/main/script.lua"))()
-	end
-})
-
-tabExtraFE:CreateButton({
-	Name = "FE Bot Mech 2025",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/LoggiesTrash/FE-Bot-Mech/main/script.lua"))()
+		loadstring(game:HttpGet("https://pastefy.app/2tC7nRAK/raw"))()
 	end
 })
 
@@ -1932,35 +1827,21 @@ tabCrazyHubs:CreateButton({
 tabCrazyHubs:CreateButton({
 	Name = "OMG Hub Script",
 	Callback = function()
-		loadstring(game:HttpGet("https://github.com/omg-hub-script/omg-hub/raw/omg-hub"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
 	end
 })
 
 tabCrazyHubs:CreateButton({
 	Name = "Ghost Hub Script",
 	Callback = function()
-		loadstring(game:HttpGet("https://github.com/ghosthubscript/ghosthub/raw/ghosthub"))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
 	end
 })
 
 tabCrazyHubs:CreateButton({
 	Name = "Zidan Hub v3.1",
 	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZidanHub/V3.1/main/script.lua"))()
-	end
-})
-
-tabCrazyHubs:CreateButton({
-	Name = "DeclareMods Hub",
-	Callback = function()
-		loadstring(game:HttpGet("https://declaremods.com/raw/hub"))()
-	end
-})
-
-tabCrazyHubs:CreateButton({
-	Name = "AWP Executor Hub",
-	Callback = function()
-		loadstring(game:HttpGet("https://awp-executor.com/raw/hub"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/domestoz123/zidan-hub/refs/heads/main/message%20(2).txt"))()
 	end
 })
 
@@ -2152,43 +2033,6 @@ tabUltimateVisuals:CreateButton({
 	end
 })
 
--- Trolling Tools (Ek)
-tabTrolling:CreateButton({
-	Name = "Bombing Trolling Script",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/bombing-troll"))()
-	end
-})
-
-tabTrolling:CreateButton({
-	Name = "Exploit Trolling Voice Chat",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/voice-chat-troll"))()
-	end
-})
-
-tabTrolling:CreateButton({
-	Name = "Server Side Executor FE Trolling",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/server-side-fe"))()
-	end
-})
-
-tabTrolling:CreateButton({
-	Name = "Admin Panel Any Game Trolling",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/admin-panel-troll"))()
-	end
-})
-
--- Exploits (Ek)
-tabExploits:CreateButton({
-	Name = "Fisch Script Menu 2025",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/fisch-script-2025"))()
-	end
-})
-
 tabExploits:CreateButton({
 	Name = "Bee Swarm Simulator Guide Hub",
 	Callback = function()
@@ -2196,19 +2040,6 @@ tabExploits:CreateButton({
 	end
 })
 
-tabExploits:CreateButton({
-	Name = "Isle 9 Roblox Script",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/isle-9-script"))()
-	end
-})
-
-tabExploits:CreateButton({
-	Name = "John Doe Script Roblox",
-	Callback = function()
-		loadstring(game:HttpGet("https://youtube.com/raw/john-doe-script"))()
-	end
-})
 
 -- Başlangıçta ESP ve oyuncu listesi güncelle
 updateESP()
@@ -2216,7 +2047,7 @@ refreshPlayerNames()
 
 Rayfield:Notify({
 	Title = "Loaded",
-	Content = "YunusLo1545 GUI with 50+ Crazy Features Loaded!",
+	Content = "YunusLo1545 GUI with 100+ Crazy Features Loaded!",
 	Duration = 5,
 	Image = nil,
 	Actions = {}
