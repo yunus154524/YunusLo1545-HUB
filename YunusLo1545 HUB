@@ -72,7 +72,7 @@ local button = Instance.new("TextButton")
 button.Size = UDim2.new(1, -4, 1, -4)
 button.Position = UDim2.new(0, 2, 0, 2)
 button.BackgroundTransparency = 1
-button.Text = "Toggle Executor"
+button.Text = "Toggle GUI"
 button.TextColor3 = Color3.fromRGB(255, 255, 255)
 button.TextSize = 16 -- Smaller text size
 button.Font = Enum.Font.GothamBold
@@ -566,8 +566,8 @@ FESection:NewButton("FE Btools", "FE Btools", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
-FESection:NewButton("FE Free PS", "FE Free PS", function()
-    loadstring(game:HttpGet("https://gist.githubusercontent.com/Tesker-103/ed48b3ae8120b0c040584b661cbda063/raw/210408b3f107dc740a4c9b832bfa647f92aa25d1/FreePrivateServerGUI"))()
+FESection:NewButton("FE Free PS(DIRECT)", "FE Free PS(DIRECT)", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/veil0x14/LocalScripts/refs/heads/main/pg.lua"))()
 end)
 
 FESection:NewButton("FE Cat Script", "FE Cat Script", function()
