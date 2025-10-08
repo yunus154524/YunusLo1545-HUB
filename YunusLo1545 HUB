@@ -566,6 +566,10 @@ FESection:NewButton("FE Btools", "FE Btools", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
+FESection:NewButton("FE Free PS", "FE Free PS", function()
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/Tesker-103/ed48b3ae8120b0c040584b661cbda063/raw/210408b3f107dc740a4c9b832bfa647f92aa25d1/FreePrivateServerGUI"))()
+end)
+
 FESection:NewButton("FE Cat Script", "FE Cat Script", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/Y1MkBRn3"))()
 end)
