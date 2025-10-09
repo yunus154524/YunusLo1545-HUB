@@ -234,12 +234,20 @@ getgenv().BETA_VERSION = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
 end)
 
+sectionGames:NewButton("99 Nights(GOD MODE)", "99 Nights(GOD MODE)", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/ProBaconHub/DATABASE/refs/heads/main/99%20Nights%20in%20the%20Forest/Infinite%20Health.lua"))()
+end)
+
 sectionGames:NewButton("99 Nights(OP)", "99 Nights(OP)", function()
      loadstring(game:HttpGet("https://nazuro.xyz/99nights"))()
 end)
 
 sectionGames:NewButton("99 Nights", "99 Nights", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
+end)
+
+sectionGames:NewButton("99 Nights(2)", "99 Nights(2)", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/AXS-Main/AXS-Script/refs/heads/main/AXS-HUB/Main/Loader"))()
 end)
 
 sectionGames:NewButton("99 Nights(SolunaIsLove = Pass)", "99 Nights 2", function()
