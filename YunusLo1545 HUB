@@ -582,6 +582,10 @@ FESection:NewButton("FE Cat Script", "FE Cat Script", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/Y1MkBRn3"))()
 end)
 
+FESection:NewButton("FE Universal Hitbox Extender", "FE Universal Hitbox Extender", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/AAPVdev/scripts/refs/heads/main/UI_LimbExtender.lua'))()
+end)
+
 FESection:NewButton("FE Grab Knife(Works on Backdoored Games)", "FE Grab Knife(Works on Backdoored Games)", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Grab%20V4.txt", true))()
 end)
@@ -976,6 +980,10 @@ Players.PlayerRemoving:Connect(function()
 end)
 
 --Chat Bypass
+
+ChatSection:NewButton("Fe Catbypasser", "Catbypasser", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/shadow62x/catbypass/main/upfix"))()
+end)
 
 ChatSection:NewButton("Fe Gaze Bypass V4", "Works all games", function()
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Gaze-bypass-Altered-21081"))()
