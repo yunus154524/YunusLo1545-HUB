@@ -23,7 +23,7 @@ local CoreGui = game:GetService("CoreGui")
 local TeleportService = game:GetService("TeleportService")
 
 -- UI Library (Kavo UI)
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.cowm/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("YunusLo1545 GUI", "BloodTheme")
 
 -- Vars
