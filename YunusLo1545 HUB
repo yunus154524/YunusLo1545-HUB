@@ -1,3 +1,4 @@
+
 --[=[
 Solara Ultimate Hacker GUI - Gelişmiş ve Havalı
 Özellikler: FE Scripts, Client Mods, ESP, Işınlanma, Invisible, GodMode, Noclip,
@@ -879,7 +880,7 @@ end)]]--
 
 -- Sit toggle (tek tuşla otur kalk)
 local sitToggle = false
-sectionExtras:NewToggle("Sit Toggle", "Tek tuşla otur/kalk", function(state)
+sectionExtras:NewToggle("Sit Toggle(Z)", "Tek tuşla otur/kalk", function(state)
     sitToggle = state
     if not sitToggle and humanoid then
         humanoid.Sit = false
