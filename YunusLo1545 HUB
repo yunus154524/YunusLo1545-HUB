@@ -1,19 +1,9 @@
-
---[=[
-Solara Ultimate Hacker GUI - Gelişmiş ve Havalı
-Özellikler: FE Scripts, Client Mods, ESP, Işınlanma, Invisible, GodMode, Noclip,
-WalkOnWalls, Speed/Jump ayarları, Anti Fall Damage, Tool Giver, Chat Spam, Auto Rejoin,
-Anti AFK, Super Punch, Speed Aura, Infinite Jump, Sit Toggle, Fly GUI ve daha fazlası.
-Şık Siyah-Kırmızı Tema, LeftAlt ile GUI toggle, T tuşu ile ışınlanma
-]=]--
-
 game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "YunusLo1545 GUI/HUB",
 	Text = "Loaded", 
 	Icon = ""
 })
 
--- Services
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local RunService = game:GetService("RunService")
@@ -27,33 +17,28 @@ local TeleportService = game:GetService("TeleportService")
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("YunusLo1545 GUI", "BloodTheme")
 
--- Vars
 local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 local rootPart = character:WaitForChild("HumanoidRootPart")
 local guiVisible = true
 
--- Update character refs on respawn
 LocalPlayer.CharacterAdded:Connect(function(char)
     character = char
     humanoid = char:WaitForChild("Humanoid")
     rootPart = char:WaitForChild("HumanoidRootPart")
 end)
 
--- Create ScreenGui
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.Name = "ScriptExecutorGui"
 
--- Create Frame for Button with Gradient (smaller size)
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 150, 0, 40) -- Reduced size
-frame.Position = UDim2.new(0.5, -75, 0, 10) -- Top-center
+frame.Size = UDim2.new(0, 150, 0, 40) 
+frame.Position = UDim2.new(0.5, -75, 0, 10) 
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 frame.BorderSizePixel = 0
 frame.Parent = screenGui
 
--- Add UIGradient for stylish effect
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
     ColorSequenceKeypoint.new(0, Color3.fromRGB(100, 100, 255)),
@@ -62,26 +47,23 @@ gradient.Color = ColorSequence.new{
 gradient.Rotation = 45
 gradient.Parent = frame
 
--- Add UICorner for rounded edges
 local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 10) -- Slightly smaller corner radius
+corner.CornerRadius = UDim.new(0, 10) 
 corner.Parent = frame
 
--- Create TextButton
 local button = Instance.new("TextButton")
 button.Size = UDim2.new(1, -4, 1, -4)
 button.Position = UDim2.new(0, 2, 0, 2)
 button.BackgroundTransparency = 1
 button.Text = "Toggle GUI"
 button.TextColor3 = Color3.fromRGB(255, 255, 255)
-button.TextSize = 16 -- Smaller text size
+button.TextSize = 16 
 button.Font = Enum.Font.GothamBold
 button.Parent = frame
 
--- Add Hover Effect
 button.MouseEnter:Connect(function()
     frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    button.TextSize = 18 -- Smaller hover text size
+    button.TextSize = 18 
 end)
 
 button.MouseLeave:Connect(function()
@@ -89,22 +71,18 @@ button.MouseLeave:Connect(function()
     button.TextSize = 16
 end)
 
--- Assume Library is defined elsewhere for the UI toggle
 local UserInputService = game:GetService("UserInputService")
 
--- Button Click Event
 button.MouseButton1Click:Connect(function()
     Library:ToggleUI()
 end)
 
--- Keybind for LeftAlt
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.LeftAlt then
         Library:ToggleUI()
     end
 end)
 
--- Dragging Functionality
 local dragging
 local dragInput
 local dragStart
@@ -393,43 +371,32 @@ end)
 sectionFE:NewToggle("Spam Proximity(15 Studs)", "Spam Proximity(15 Studs)", function()
     local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
-local maxDistance = 10 -- Maksimum mesafe (studs cinsinden, isteğe göre değiştir)
-local triggeredPrompts = {} -- Tetiklenen prompt'ları takip etmek için tablo
+local maxDistance = 10 
+local triggeredPrompts = {} 
 
--- Yakındaki ProximityPrompt'ları tetikleme fonksiyonu
 local function triggerNearbyPrompts()
-    -- Oyuncunun karakteri var mı kontrol et
     if not Player.Character or not Player.Character:FindFirstChild("HumanoidRootPart") then
         return
     end
 
     local playerPosition = Player.Character.HumanoidRootPart.Position
 
-    -- Çalışma alanındaki tüm ProximityPrompt'ları tara
     for _, object in pairs(game.Workspace:GetDescendants()) do
         if object:IsA("ProximityPrompt") then
-            -- Zaten tetiklenmişse atla
             if triggeredPrompts[object] then
                 continue()
             end
 
-            -- Prompt'un pozisyonunu al
             local promptPosition = object.Parent.Position
-            -- Oyuncuya olan mesafeyi hesapla
             local distance = (promptPosition - playerPosition).Magnitude
 
-            -- Eğer mesafe maxDistance'dan küçükse
             if distance <= maxDistance then
-                -- Tetikleme hızını 0 yap
                 object.HoldDuration = 0
-                -- Prompt'u anında tetikle
                 pcall(function()
                     fireproximityprompt(object)
-                    -- Tetiklendi olarak işaretle
                     triggeredPrompts[object] = true
-                    -- 5 saniye sonra tekrar tetiklenebilir yap
                     spawn(function()
-                        wait(5) -- Tekrar tetiklenmeden önce bekleme süresi
+                        wait(5) 
                         triggeredPrompts[object] = nil
                     end)
                 end)
@@ -438,10 +405,9 @@ local function triggerNearbyPrompts()
     end
 end
 
--- Daha az sıklıkla kontrol için döngü
 while true do
     triggerNearbyPrompts()
-    wait(0.2) -- 0.2 saniye gecikme (kasmayı azaltır)
+    wait(0.2) 
 end
 end)
 
@@ -504,7 +470,6 @@ sectionFE:NewButton("Reset Player", "Reset Humanoid", function()
     char.Humanoid.Health = 0
 end)
 
--- Tool Giver (oyundaki tüm tool'ları verir)
 sectionFE:NewButton("Tool Giver", "Tüm araçları alırsın", function()
     for _,source in pairs({Workspace, ReplicatedStorage}) do
         for _,item in pairs(source:GetDescendants()) do
@@ -522,20 +487,16 @@ sectionFE:NewToggle("FE God Mode", "Sürekli Tam Can", function(State)
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hum = char:WaitForChild("Humanoid")
 
--- Karakter yeniden doğarsa güncelle
 plr.CharacterAdded:Connect(function(c)
     char = c
     hum = char:WaitForChild("Humanoid")
 end)
 
--- Canı sabitle ama GUI'de az görünsün
 game:GetService("RunService").Heartbeat:Connect(function()
     if hum and hum.Health > 0 then
-        -- Gerçek canı koru
         hum.Health = hum.MaxHealth
         hum:SetStateEnabled(Enum.HumanoidStateType.Dead, false)
 
-        -- GUI'de düşük görünmesi için sahte değer ver
         hum.HealthDisplayType = Enum.HumanoidHealthDisplayType.AlwaysOn
         hum.NameDisplayDistance = 0
         hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
@@ -544,21 +505,17 @@ end)
 
 end)
 
--- Anti Kick / Ban Toggle
 local antiKickEnabled = false
 local originalOnKick
 
 sectionFE:NewToggle("Anti Kick / Ban", "Kick veya banlanmayı engellemeye çalışır (client-side)", function(state)
     antiKickEnabled = state
     if state then
-        -- OnKick fonksiyonunu engelle
         originalOnKick = LocalPlayer.OnKick
         LocalPlayer.OnKick = function()
-            -- Sonsuz bekleme ile kick'i engellemeye çalışır
             wait(9e9)
         end
     else
-        -- Orijinal OnKick fonksiyonunu geri yükle
         if originalOnKick then
             LocalPlayer.OnKick = originalOnKick
             originalOnKick = nil
@@ -725,38 +682,30 @@ spySection:NewButton("Remote Scanner", "Remote Scanner", function()
 end)
 
 spySection:NewButton("ROBLOX UNIVERSAL REMOTE EVENT SCANNER", "ROBLOX UNIVERSAL REMOTE EVENT SCANNER", function()
-    -- Function to recursively search for RemoteEvents in a given instance
 local function findRemoteEvents(instance)
     for _, child in ipairs(instance:GetChildren()) do
         if child:IsA("RemoteEvent") then
-            print(child:GetFullName()) -- Prints the full path of the RemoteEvent
+            print(child:GetFullName())
         end
         findRemoteEvents(child)
     end
 end
 
--- Start the search from the game's Workspace, ReplicatedStorage, and ReplicatedFirst
 findRemoteEvents(game.Workspace)
 findRemoteEvents(game.ReplicatedStorage)
 findRemoteEvents(game.ReplicatedFirst)
 
 end)
 
-
--- DEVAMINI aynen korudum, aşağıdaki kod parçalarını da ekleyebilirim istersen.
-
 -- CLIENT MODS
--- Speed slider
 sectionPlayer:NewSlider("Speed", "Yürüme hızını ayarlar", 500, 16, function(val)
     if humanoid then humanoid.WalkSpeed = val end
 end)
 
--- Jump slider
 sectionPlayer:NewSlider("Jump Power", "Zıplama gücünü ayarlar", 300, 50, function(val)
     if humanoid then humanoid.JumpPower = val end
 end)
 
--- Jump power sıkıntısı için button
 sectionPlayer:NewButton("Fix Jump Power", "", function()
     game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = true
 end)
@@ -802,7 +751,6 @@ sectionExtras:NewButton("UNC Tester", "UNC test yapma konsola bakın", function(
     loadstring(game:HttpGet("https://github.com/ltseverydayyou/uuuuuuu/blob/main/UNC%20test?raw=true"))()
 end)
 
--- Invisible client-side toggle
 local invisibleOn = false
 sectionPlayer:NewToggle("Invisible (Client-Side)", "Sadece sen görünmez ol", function(state)
     invisibleOn = state
@@ -816,7 +764,6 @@ sectionPlayer:NewToggle("Invisible (Client-Side)", "Sadece sen görünmez ol", f
     end
 end)
 
--- Noclip toggle
 local noclipConn
 sectionPlayer:NewToggle("Noclip", "Engellerden geç", function(state)
     if noclipConn then noclipConn:Disconnect() end
@@ -833,7 +780,6 @@ sectionPlayer:NewToggle("Noclip", "Engellerden geç", function(state)
     end
 end)
 
--- Walk On Walls toggle
 local walkWallsConn
 sectionExtras:NewToggle("Walk On Walls", "Duvarda yürü", function(state)
     if walkWallsConn then walkWallsConn:Disconnect() end
@@ -855,7 +801,6 @@ sectionExtras:NewToggle("Walk On Walls", "Duvarda yürü", function(state)
     end
 end)
 
--- Anti Fall Damage toggle
 local afdConn
 sectionExtras:NewToggle("Anti Fall Damage", "Düşerken hasar alma", function(state)
     if afdConn then afdConn:Disconnect() end
@@ -868,17 +813,6 @@ sectionExtras:NewToggle("Anti Fall Damage", "Düşerken hasar alma", function(st
     end
 end)
 
---[[Sit anywhere (Z otur, X kalk)
-UserInputService.InputBegan:Connect(function(input, gp)
-    if gp then return end
-    if input.KeyCode == Enum.KeyCode.Z then
-        if humanoid then humanoid.Sit = true end
-    elseif input.KeyCode == Enum.KeyCode.X then
-        if humanoid then humanoid.Sit = false end
-    end
-end)]]--
-
--- Sit toggle (tek tuşla otur kalk)
 local sitToggle = false
 sectionExtras:NewToggle("Sit Toggle(Z)", "Tek tuşla otur/kalk", function(state)
     sitToggle = state
@@ -893,7 +827,6 @@ UserInputService.InputBegan:Connect(function(input, gp)
     end
 end)
 
--- Fly GUI butonu
 sectionExtras:NewButton("Fly GUI", "Fly GUI açar", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
 end)
@@ -991,7 +924,6 @@ end)
 
 -- Extras
 
--- Teleport to player by name (case insensitive, partial)
 sectionExtras:NewTextBox("Teleport To Player", "Oyuncu ismi yaz", function(input)
     if input == "" then return end
     local target = nil
@@ -1009,7 +941,6 @@ sectionExtras:NewTextBox("Teleport To Player", "Oyuncu ismi yaz", function(input
     end
 end)
 
--- Teleport dropdown (liste ile seç)
 local playerNames = {}
 local function refreshPlayerNames()
     playerNames = {}
@@ -1031,7 +962,6 @@ end)
 Players.PlayerAdded:Connect(refreshPlayerNames)
 Players.PlayerRemoving:Connect(refreshPlayerNames)
 
--- Auto Rejoin toggle
 local autoRejoinConn
 local autoRejoinEnabled = false
 sectionExtras:NewToggle("Auto Rejoin", "Sunucudan atılırsan tekrar bağlan", function(state)
@@ -1048,7 +978,6 @@ sectionExtras:NewToggle("Auto Rejoin", "Sunucudan atılırsan tekrar bağlan", f
     end
 end)
 
--- Anti AFK toggle
 local antiAfkConn
 local antiAfkEnabled = false
 sectionExtras:NewToggle("Anti AFK", "Atılmanı engeller", function(state)
@@ -1062,7 +991,6 @@ sectionExtras:NewToggle("Anti AFK", "Atılmanı engeller", function(state)
     end
 end)
 
--- Super Punch button
 sectionExtras:NewButton("Super Punch", "Yakındaki oyuncuları hızlı vur", function()
     for _, plr in pairs(Players:GetPlayers()) do
         if plr ~= LocalPlayer and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
@@ -1081,7 +1009,6 @@ sectionExtras:NewButton("Super Punch", "Yakındaki oyuncuları hızlı vur", fun
     end
 end)
 
--- Speed Aura toggle
 local speedAuraConn
 local speedAuraEnabled = false
 sectionExtras:NewToggle("Speed Aura", "Yakındaki oyuncuları yavaşlat", function(state)
@@ -1113,7 +1040,6 @@ sectionExtras:NewToggle("Speed Aura", "Yakındaki oyuncuları yavaşlat", functi
     end
 end)
 
--- Infinite Jump toggle
 local infiniteJumpEnabled = false
 UserInputService.JumpRequest:Connect(function()
     if infiniteJumpEnabled then
@@ -1126,7 +1052,6 @@ sectionExtras:NewToggle("Infinite Jump", "İstediğin kadar zıpla", function(st
     infiniteJumpEnabled = state
 end)
 
--- WalkSpeed Multiplier slider
 local walkSpeedMult = 1
 sectionExtras:NewSlider("WalkSpeed Multiplier", "Yürüme hızını katlar", 10, 1, function(val)
     walkSpeedMult = val
@@ -1135,7 +1060,6 @@ sectionExtras:NewSlider("WalkSpeed Multiplier", "Yürüme hızını katlar", 10,
     end
 end)
 
--- JumpPower Multiplier slider
 local jumpPowerMult = 1
 sectionExtras:NewSlider("JumpPower Multiplier", "Zıplama gücünü katlar", 10, 1, function(val)
     jumpPowerMult = val
@@ -1144,25 +1068,21 @@ sectionExtras:NewSlider("JumpPower Multiplier", "Zıplama gücünü katlar", 10,
     end
 end)
 
--- Chat spam durumunu tutan değişken
 local spamEnabled = false
 local spamMessages = {
     "Solara rocks!", "I hacked this game!", "Epic Script!", "Join my Discord!", "Follow me!", "Best GUI ever!"
 }
 local spamConn = nil
 
--- Servisleri alıyoruz
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local TextChatService = game:GetService("TextChatService")
 
--- Kullanıcının chat spam'i açıp kapatmasını sağlayan GUI öğesi
 sectionExtras:NewToggle("Chat Spam", "Otomatik chat spam (kapalı tavsiye edilir)", function(state)
     spamEnabled = state
     if spamEnabled then
         spamConn = RunService.Heartbeat:Connect(function()
             if TextChatService.ChatVersion == Enum.TextChatVersion.LegacyChatService then
-                -- Eski chat sistemi için
                 local defaultChatEvents = game:GetService("ReplicatedStorage"):FindFirstChild("DefaultChatSystemChatEvents")
                 if defaultChatEvents then
                     local sayMessageRequest = defaultChatEvents:FindFirstChild("SayMessageRequest")
@@ -1171,7 +1091,6 @@ sectionExtras:NewToggle("Chat Spam", "Otomatik chat spam (kapalı tavsiye edilir
                     end
                 end
             elseif TextChatService.ChatVersion == Enum.TextChatVersion.TextChatService then
-                -- Yeni chat sistemi için
                 local defaultChannel = TextChatService:FindFirstChild("TextChannels"):FindFirstChild("RBXGeneral")
                 if defaultChannel then
                     defaultChannel:SendAsync(spamMessages[math.random(1, #spamMessages)])
@@ -1180,11 +1099,10 @@ sectionExtras:NewToggle("Chat Spam", "Otomatik chat spam (kapalı tavsiye edilir
         end)
     elseif spamConn then
         spamConn:Disconnect()
-        spamConn = nil -- Bağlantıyı kestikten sonra değişkeni temizliyoruz
+        spamConn = nil 
     end
 end)
 
--- Teleport to mouse toggle ve T tuşu ışınlama sistemi
 local teleportToMouseEnabled = false
 sectionExtras:NewToggle("Teleport to Mouse (T toggle)", "T ile imleç pozisyonuna ışınlan", function(state)
     teleportToMouseEnabled = state
@@ -1262,7 +1180,6 @@ sectionHUBS:NewButton("FE c00lkidd GUI", "Fonksiyonel c00lkidd GUI", function()
      loadstring(game:HttpGet("https://pastebin.com/raw/AczzXtnG"))()
 end)
 
--- Başlangıçta ESP ve oyuncu listesi güncelle
 updateESP()
 refreshPlayerNames()
 
