@@ -202,6 +202,10 @@ end)
 -- =========================
 
 sectionGames:NewButton("BEST BROOKHAVEN HUB", "BEST BROOKHAVEN HUB", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/nytheruneplus"))()
+end)
+
+sectionGames:NewButton("BEST BROOKHAVEN HUB 2", "BEST BROOKHAVEN HUB", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/toparemos/Source/refs/heads/main/Support/loader.luau"))()
 end)
 
