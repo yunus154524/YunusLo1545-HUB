@@ -1,4 +1,3 @@
---[[wraviel 0.2 without makeup]]
 local r,z,x,c,v,m = "wdqwadwqdqwesaw","dswedwwefdads","https://raw.githubusercontent.com/Oproxide/i-just-a-babeh/refs/heads/main/testingchamber","egdsdwdqwdqww","ewqdqdwwfsc","iwefiywyfgywie";_G.z = "jErcBWaEAyIpzENyBKoQWaVOPpBdvPLIBnSCXoASmtZgBY"
 wtv=({[string.char(65,110,100,114,111,105,100)]=true,[string.char(73,79,83)]=true})[game:GetService(string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101)):GetPlatform()]
 if wtv then
